@@ -1,0 +1,34 @@
+[
+  {
+    "meta": {
+      "slug": "2026-04-10-n8n-adinusa-automation",
+      "title": "n8n Automation: Microsoft Ecosystem to ADINUSA",
+      "description": "Designing a seamless data automation workflow using n8n to integrate Microsoft Excel, SharePoint, and OneDrive directly with the ADINUSA platform.",
+      "tags": [
+        "Automation",
+        "n8n",
+        "Integration"
+      ],
+      "date": "2026-04-10",
+      "image": "/assets/img/wallpaper4.webp",
+      "link": null
+    },
+    "content": "\nThis project aims to streamline and automate data management workflows utilizing **n8n** as the core integration hub. Through this workflow architecture, the Microsoft ecosystem—spanning Excel, Microsoft Docs, SharePoint, and OneDrive—is mapped and synchronized in real-time to the ADINUSA educational platform.\n\n### The Challenge\nPreviously, synchronizing user data, training materials, and assessment logs from the Microsoft platform to ADINUSA relied on manual export/import mechanisms. This process was highly prone to human error and inherently suffered from synchronization latency.\n\n### Solution & Architecture\nBy leveraging the node-based automation capabilities of n8n, I engineered dedicated webhooks and direct API injects that routinely listen for directory changes in OneDrive and row updates within Excel spreadsheets on SharePoint.\n\nEvery triggered event automatically executes requests to ADINUSA's API endpoints to validate user progress, update certification scores, and distribute learning licenses instantly, operating efficiently without requiring any human intervention.\n"
+  },
+  {
+    "meta": {
+      "slug": "2026-04-10-oracle-19c-trainer",
+      "title": "Oracle Database 19c Technical Trainer",
+      "description": "Delivering comprehensive training content for Oracle Database 19c administration, culminating in advanced enterprise backup and recovery strategies using RMAN.",
+      "tags": [
+        "Oracle",
+        "Database",
+        "Training"
+      ],
+      "date": "2026-04-10",
+      "image": "/assets/img/wallpaper2.webp",
+      "link": null
+    },
+    "content": "\nAs the Technical Trainer for the Oracle Database 19c curriculum, I was responsible for architecting the technical syllabus and guiding its hands-on delivery. The curated material scales comprehensively from foundational relational architecture to enterprise-grade backup management.\n\n### Foundational Curriculum\nThe introductory phase covers the core architecture of Oracle 19c Multitenant, where participants are trained extensively on Container Databases (CDBs) and Pluggable Databases (PDBs). The learning curve encompasses advanced instance installations, user profiling, role and privilege allocations, alongside optimal execution of storage and tablespace management.\n\n### Backup Management via RMAN\nThe zenith of the technical bootcamp centered heavily on Disaster Recovery mitigation. Participants were directed through intensive, scenario-based operations of the Oracle Recovery Manager (RMAN):\n- Designing and executing explicit Full and Incremental Backup architectures.\n- Engineering and enforcing integrated Retention Policies.\n- Delivering Point-In-Time database restorations mimicking critical scenarios involving lost data files or corrupted control files.\n- Automating standardized RMAN schedules utilizing cron tasks and the Oracle Scheduler for dedicated operations and maintenance landscapes.\n"
+  }
+]

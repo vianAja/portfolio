@@ -14,20 +14,58 @@ export interface ProjectMeta {
   link?: string;
 }
 
+interface Project {
+  meta: ProjectMeta;
+  content: string;
+}
+
+// Hybrid Loader: Support for Edge (Cloudflare) via Build-time JSON
 export function getAllProjects(): ProjectMeta[] {
-  if (!fs.existsSync(docsDir)) return [];
+  if (process.env.NODE_ENV === "development") {
+    if (!fs.existsSync(docsDir)) return [];
+    const files = fs
+      .readdirSync(docsDir)
+      .filter((f) => f.endsWith(".md") && fs.statSync(path.join(docsDir, f)).size > 0);
 
-  const files = fs
-    .readdirSync(docsDir)
-    .filter((f) => f.endsWith(".md") && fs.statSync(path.join(docsDir, f)).size > 0);
+    return files
+      .map((filename) => {
+        const filePath = path.join(docsDir, filename);
+        const raw = fs.readFileSync(filePath, "utf8");
+        const { data } = matter(raw);
+        const slug = filename.replace(/\.md$/, "");
+        return {
+          slug,
+          title: data.title ?? slug,
+          description: data.description ?? "",
+          tags: data.tags ?? [],
+          date: data.date ? String(data.date) : "",
+          image: data.image ?? null,
+          link: data.link ?? null,
+        } as ProjectMeta;
+      })
+      .sort((a, b) => (a.date > b.date ? -1 : 1));
+  }
 
-  return files
-    .map((filename) => {
-      const filePath = path.join(docsDir, filename);
-      const raw = fs.readFileSync(filePath, "utf8");
-      const { data } = matter(raw);
-      const slug = filename.replace(/\.md$/, "");
-      return {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const projectsData = require("../data/generated-projects-data.json") as Project[];
+    return projectsData
+      .map((p) => p.meta)
+      .sort((a, b) => (a.date > b.date ? -1 : 1));
+  } catch (e) {
+    console.error("Failed to load projects manifest, falling back to empty list.", e);
+    return [];
+  }
+}
+
+export function getProjectBySlug(slug: string): Project | null {
+  if (process.env.NODE_ENV === "development") {
+    const filePath = path.join(docsDir, `${slug}.md`);
+    if (!fs.existsSync(filePath)) return null;
+    const raw = fs.readFileSync(filePath, "utf8");
+    const { data, content } = matter(raw);
+    return {
+      meta: {
         slug,
         title: data.title ?? slug,
         description: data.description ?? "",
@@ -35,26 +73,16 @@ export function getAllProjects(): ProjectMeta[] {
         date: data.date ? String(data.date) : "",
         image: data.image ?? null,
         link: data.link ?? null,
-      } as ProjectMeta;
-    })
-    .sort((a, b) => (a.date > b.date ? -1 : 1));
-}
+      },
+      content,
+    };
+  }
 
-export function getProjectBySlug(slug: string): { meta: ProjectMeta; content: string } | null {
-  const filePath = path.join(docsDir, `${slug}.md`);
-  if (!fs.existsSync(filePath)) return null;
-  const raw = fs.readFileSync(filePath, "utf8");
-  const { data, content } = matter(raw);
-  return {
-    meta: {
-      slug,
-      title: data.title ?? slug,
-      description: data.description ?? "",
-      tags: data.tags ?? [],
-      date: data.date ? String(data.date) : "",
-      image: data.image ?? null,
-      link: data.link ?? null,
-    },
-    content,
-  };
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const projectsData = require("../data/generated-projects-data.json") as Project[];
+    return projectsData.find((p) => p.meta.slug === slug) || null;
+  } catch (e) {
+    return null;
+  }
 }
