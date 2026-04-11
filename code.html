@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KINETIC | Najwan Octavian Gerrard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#7decef",
+                        "on-secondary-container": "#ffa17b",
+                        "outline": "#869393",
+                        "inverse-on-surface": "#2f3133",
+                        "surface-container-highest": "#333537",
+                        "on-tertiary-container": "#8a2e2d",
+                        "primary-fixed": "#84f4f7",
+                        "outline-variant": "#3d4949",
+                        "secondary-container": "#7b3313",
+                        "error-container": "#93000a",
+                        "surface-bright": "#37393b",
+                        "surface-container": "#1e2022",
+                        "primary-container": "#5ed0d3",
+                        "on-primary-container": "#005759",
+                        "on-primary-fixed": "#002021",
+                        "surface": "#121416",
+                        "secondary-fixed": "#ffdbce",
+                        "surface-dim": "#121416",
+                        "tertiary": "#ffd0cd",
+                        "surface-variant": "#333537",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#ffdad7",
+                        "inverse-primary": "#00696c",
+                        "on-background": "#e2e2e5",
+                        "surface-container-lowest": "#0c0e10",
+                        "surface-container-low": "#1a1c1e",
+                        "on-primary-fixed-variant": "#004f51",
+                        "on-tertiary-fixed-variant": "#802826",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "secondary": "#ffb599",
+                        "on-secondary": "#5a1c00",
+                        "on-surface": "#e2e2e5",
+                        "primary-fixed-dim": "#66d7da",
+                        "on-secondary-fixed-variant": "#783111",
+                        "on-surface-variant": "#bcc9c9",
+                        "tertiary-container": "#ffa9a3",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface": "#e2e2e5",
+                        "surface-container-high": "#282a2c",
+                        "background": "#121416",
+                        "surface-tint": "#66d7da",
+                        "on-tertiary": "#611013",
+                        "on-error": "#690005",
+                        "on-primary": "#003738",
+                        "on-secondary-fixed": "#370e00",
+                        "secondary-fixed-dim": "#ffb599",
+                        "on-tertiary-fixed": "#410004"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            display: flex;
+            user-select: none;
+        }
+        .marquee-text {
+            -webkit-text-stroke: 1px rgba(125, 236, 239, 0.2);
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#121416]/60 backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-white font-['Space_Grotesk']">
+                KINETIC
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-['Space_Grotesk'] tracking-tighter uppercase text-sm text-gray-400 hover:text-white transition-colors" href="#">Projects</a>
+<a class="font-['Space_Grotesk'] tracking-tighter uppercase text-sm text-gray-400 hover:text-white transition-colors" href="#">Skills</a>
+<a class="font-['Space_Grotesk'] tracking-tighter uppercase text-sm text-gray-400 hover:text-white transition-colors" href="#">Blog</a>
+<a class="font-['Space_Grotesk'] tracking-tighter uppercase text-sm text-gray-400 hover:text-white transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary font-['Space_Grotesk'] tracking-tighter uppercase text-sm px-6 py-2 rounded-full font-bold hover:scale-95 transition-all duration-200">
+                Hire Me
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center px-8 pt-20 overflow-hidden">
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+<div class="md:col-span-8">
+<div class="inline-flex items-center space-x-2 px-3 py-1 rounded-sm bg-surface-container-highest mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[0.6875rem] font-label uppercase tracking-[0.1em] text-on-surface-variant">Available for worldwide projects</span>
+</div>
+<h1 class="font-headline text-[3.5rem] md:text-[5rem] leading-[1] font-bold tracking-[-0.04em] mb-8">
+                        Najwan Octavian <span class="text-primary">Gerrard</span>
+</h1>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-[1.6]">
+                        Passionate about <span class="text-white font-medium">Cloud Computing</span>, <span class="text-white font-medium">DevOps</span>, and <span class="text-white font-medium">Machine Learning</span>. Engineering scalable digital futures through high-performance architecture.
+                    </p>
+<div class="mt-12 flex flex-wrap gap-4">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-8 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_20px_rgba(125,236,239,0.3)] transition-all">
+                            View Work
+                        </button>
+<button class="border border-outline-variant/20 text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary/5 transition-all">
+                            Read Blog
+                        </button>
+</div>
+</div>
+<div class="md:col-span-4 relative flex justify-center">
+<div class="relative w-72 h-72 md:w-96 md:h-96 rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover" data-alt="Close up professional portrait of a tech visionary with soft cinematic lighting against a dark architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkmePU7k1KY9A4D1sUzVqmh_Xe5E2bqx53JpiTRlqm4b8q1lgLmJNR2uXlALCs-9PrBdfL_1J8lAaiKi6dFxNzG9UvDl2xSeehYoO367U-2o7TZx4RZbk1dmIQ8HOQ-QJQ0_sifYE1bifDiJqHQlR2HO8Cy2MEl9Uvo7ehbRp_CDGcs6zs5oq89Z0Zu2W_bMY3lqpmWhbJqDd4nhg0WuVVi5b0ZH3tLvdKV8nZIZb1njxvmhr9HnRCdppdiDStiNI3pW_5s9P87i0_"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+</div>
+<!-- Background ambient glow -->
+<div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-primary/5 rounded-full blur-[120px]"></div>
+</div>
+</div>
+<!-- Kinetic Marquee Background -->
+<div class="absolute bottom-10 left-0 w-full kinetic-marquee opacity-20 pointer-events-none">
+<div class="marquee-text font-headline text-[8rem] font-bold uppercase tracking-widest whitespace-nowrap">
+                    SCALABLE ARCHITECTURE • CLOUD NATIVE • NEURAL NETWORKS • DEVOPS EXCELLENCE • SCALABLE ARCHITECTURE • CLOUD NATIVE •
+                </div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="py-24 px-8 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-4">
+<h2 class="font-headline text-[1.75rem] font-bold tracking-tight mb-4 uppercase">My Skills</h2>
+<div class="h-1 w-12 bg-primary mb-6"></div>
+<p class="text-on-surface-variant leading-relaxed">
+                            A deep technical stack focused on automation, scalability, and intelligence. I bridge the gap between heavy infrastructure and data-driven insights.
+                        </p>
+</div>
+<div class="md:col-span-8">
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+<!-- Skill Tiles -->
+<div class="bg-surface-container-high p-6 rounded-xl hover:bg-surface-bright transition-all group">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="cloud">cloud</span>
+<h3 class="font-headline text-sm font-bold uppercase tracking-wider text-white">AWS &amp; GCP</h3>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl hover:bg-surface-bright transition-all group">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="terminal">terminal</span>
+<h3 class="font-headline text-sm font-bold uppercase tracking-wider text-white">Kubernetes</h3>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl hover:bg-surface-bright transition-all group">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="psychology">psychology</span>
+<h3 class="font-headline text-sm font-bold uppercase tracking-wider text-white">PyTorch</h3>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl hover:bg-surface-bright transition-all group">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="settings_ethernet">settings_ethernet</span>
+<h3 class="font-headline text-sm font-bold uppercase tracking-wider text-white">Terraform</h3>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl hover:bg-surface-bright transition-all group">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="code">code</span>
+<h3 class="font-headline text-sm font-bold uppercase tracking-wider text-white">Python</h3>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl hover:bg-surface-bright transition-all group">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="database">database</span>
+<h3 class="font-headline text-sm font-bold uppercase tracking-wider text-white">PostgreSQL</h3>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl hover:bg-surface-bright transition-all group">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="data_object">data_object</span>
+<h3 class="font-headline text-sm font-bold uppercase tracking-wider text-white">CI/CD</h3>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl hover:bg-surface-bright transition-all group">
+<span class="material-symbols-outlined text-primary text-3xl mb-4" data-icon="security">security</span>
+<h3 class="font-headline text-sm font-bold uppercase tracking-wider text-white">DevSecOps</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Projects -->
+<section class="py-24 px-8">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="text-[0.6875rem] font-label uppercase tracking-[0.1em] text-primary">Selected Portfolio</span>
+<h2 class="font-headline text-4xl md:text-5xl font-bold tracking-tight mt-2">Featured Projects</h2>
+</div>
+<a class="hidden md:flex items-center text-primary font-bold group" href="#">
+                        View All Projects 
+                        <span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Project Card 1 -->
+<div class="group">
+<div class="aspect-[16/10] overflow-hidden rounded-xl bg-surface-container-high relative mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" data-alt="Abstract futuristic digital network representation with glowing blue light trails on a dark cosmic background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs2dDHwZWQfNo63pnJZImJ2GnL9zbSwf0Qu_pw8tVkiP-vBcdLOVLH9KkC-UonYlf1O6ZbNh5TXGQccfNE0Vk7hdZ6VxwbaYV7hAeD55Llmhi5ILfvGvkGP1kExRW81wrEMX8ylGy32qtxOd_owq44YRUKD_4ck7-7JZSx_AMf_ypxfrVFAjW55Zzi3HRPeK-r4b-NdfpcDf3TzBmLjH-kjmkmaX4UVcKXIp9ihBffFiNW_wNUQqvD1ZfCLW-puag9Gwbwpqy_9r2w"/>
+<div class="absolute inset-0 bg-surface/40 group-hover:bg-transparent transition-all"></div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<div class="flex gap-2 mb-3">
+<span class="bg-surface-container-highest px-2 py-0.5 rounded-sm text-[0.6875rem] font-label uppercase text-on-surface-variant">Cloud</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded-sm text-[0.6875rem] font-label uppercase text-on-surface-variant">Infrastructure</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-white mb-2">Omni-Cloud Orchestrator</h3>
+<p class="text-on-surface-variant max-w-md">Automated multi-cloud deployment engine using Terraform and Kubernetes for high-availability systems.</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-primary transition-colors" data-icon="north_east">north_east</span>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group mt-0 md:mt-24">
+<div class="aspect-[16/10] overflow-hidden rounded-xl bg-surface-container-high relative mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" data-alt="Close up of high-tech server hardware with green and blue LED lights in a futuristic data center setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNLDpNxFV8mHBOSmOIMRiAxeU-dUjm7R7N_1lMM4iQWqtInssT-IJL3SbRhbgtUpSIZZXpRwNqmwc4uouhzHVBf8JedryWakbkhFUOJtuH0gVazxRBiB4H8u3xOPB-5BM1Ss2WtecuAkP9CTB6ZNcwLR8Bmu4QiQT1ECR2lJQN7_UjRIm3YVS-sLBHDWq9I04gWKT2Fk7bfGnkLStlxVURW9wqRhZZ0TPgepQTap-zoXO6SgYCB6AAfUtmYRbUZGRN0mdnlvyCdext"/>
+<div class="absolute inset-0 bg-surface/40 group-hover:bg-transparent transition-all"></div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<div class="flex gap-2 mb-3">
+<span class="bg-surface-container-highest px-2 py-0.5 rounded-sm text-[0.6875rem] font-label uppercase text-on-surface-variant">Machine Learning</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded-sm text-[0.6875rem] font-label uppercase text-on-surface-variant">Python</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-white mb-2">Neural Sentiment Engine</h3>
+<p class="text-on-surface-variant max-w-md">Real-time NLP processing pipeline for financial market analysis using transformers.</p>
+</div>
+<span class="material-symbols-outlined text-3xl text-outline-variant group-hover:text-primary transition-colors" data-icon="north_east">north_east</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Blog Section -->
+<section class="py-24 px-8 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16 text-center">
+<h2 class="font-headline text-[1.75rem] font-bold tracking-tight uppercase mb-4">Recent Blog Posts</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Thoughts on engineering, emerging tech, and architectural patterns.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Blog Item 1 -->
+<article class="bg-surface-container-low p-8 rounded-xl border-outline-variant/10 border hover:border-primary/40 transition-all group">
+<time class="text-[0.6875rem] font-label uppercase text-on-surface-variant mb-4 block">March 12, 2024</time>
+<h3 class="font-headline text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors leading-tight">Mastering Zero-Trust in Cloud Architectures</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">Exploring the fundamental shifts in security paradigms for modern containerized environments...</p>
+<a class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-white border-b-2 border-primary/20 hover:border-primary transition-all pb-1" href="#">Read More</a>
+</article>
+<!-- Blog Item 2 -->
+<article class="bg-surface-container-low p-8 rounded-xl border-outline-variant/10 border hover:border-primary/40 transition-all group">
+<time class="text-[0.6875rem] font-label uppercase text-on-surface-variant mb-4 block">Feb 28, 2024</time>
+<h3 class="font-headline text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors leading-tight">Optimizing PyTorch for Edge Deployment</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">A deep dive into model quantization and hardware-specific optimizations for mobile devices...</p>
+<a class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-white border-b-2 border-primary/20 hover:border-primary transition-all pb-1" href="#">Read More</a>
+</article>
+<!-- Blog Item 3 -->
+<article class="bg-surface-container-low p-8 rounded-xl border-outline-variant/10 border hover:border-primary/40 transition-all group">
+<time class="text-[0.6875rem] font-label uppercase text-on-surface-variant mb-4 block">Jan 15, 2024</time>
+<h3 class="font-headline text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors leading-tight">The Future of GitOps and IaC</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">Why state management is becoming the most critical bottleneck in DevOps pipelines today...</p>
+<a class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-white border-b-2 border-primary/20 hover:border-primary transition-all pb-1" href="#">Read More</a>
+</article>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 mt-20 bg-[#1a1c1e]">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto">
+<div class="mb-8 md:mb-0">
+<span class="font-['Space_Grotesk'] font-bold text-[#5ED0D3] text-xl">KINETIC</span>
+<p class="font-['Manrope'] text-sm tracking-wide text-gray-500 mt-2">© 2024 Kinetic Editorial. Built for the Neon Curator.</p>
+</div>
+<div class="flex space-x-8">
+<a class="font-['Manrope'] text-sm tracking-wide text-gray-500 hover:text-[#5ED0D3] transition-colors" href="#">Twitter</a>
+<a class="font-['Manrope'] text-sm tracking-wide text-gray-500 hover:text-[#5ED0D3] transition-colors" href="#">GitHub</a>
+<a class="font-['Manrope'] text-sm tracking-wide text-gray-500 hover:text-[#5ED0D3] transition-colors" href="#">LinkedIn</a>
+<a class="font-['Manrope'] text-sm tracking-wide text-gray-500 hover:text-[#5ED0D3] transition-colors" href="#">RSS</a>
+</div>
+</div>
+</footer>
+</body></html>

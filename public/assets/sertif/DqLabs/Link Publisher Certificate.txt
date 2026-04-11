@@ -1,0 +1,22 @@
+1. Fundamental SQL Using FUNCTION and GROUP BY - https://academy.dqlab.id/Certificate_check/result/DQLABSQLT2BPVLQW/NONTRACK#mycertificate
+2. Exploratory Data Analysis with Python for Beginner - https://academy.dqlab.id/Certificate_check/result/DQLABINTP1SQDRVI/NONTRACK#mycertificate
+3. Data Manipulation with Pandas - Part 1 - https://academy.dqlab.id/Certificate_check/result/DQLABINTP1EATTRT/NONTRACK#mycertificate
+4. Fundamental SQL Using SELECT Statement - https://academy.dqlab.id/Certificate_check/result/DQLABSQLT1PMDAOO/NONTRACK#mycertificate
+5. Data Manipulation with Pandas - Part 2 - https://academy.dqlab.id/Certificate_check/result/DQLABINTP1PCQBLV#mycertificate
+6. Statistic using Python for Data Science - Part 1 - https://academy.dqlab.id/Certificate_check/result/DQLABSWP1CADKWC#mycertificate
+7. Statistic using Python for Data Science - Part 2 - https://academy.dqlab.id/Certificate_check/result/DQLABSWP1GSKMUB#mycertificate
+8. Pengantar Machine Learning dengan Python - https://academy.dqlab.id/Certificate_check/result/DQLABPMLP1QPEQBP#mycertificate
+9. Populasi dan Sampel - https://academy.dqlab.id/Certificate_check/result/DQLABPDSP1BAJQGG#mycertificate
+10. Mengenal Model Regresi Linear Pada Python - https://academy.dqlab.id/Certificate_check/result/DQLABMDNP1KRFCWK#mycertificate
+11. Fundamental SQL Using INNER JOIN and UNION - https://academy.dqlab.id/Certificate_check/result/DQLABSQLT2HHFBWP#mycertificate
+12. Machine Learning With Python for Beginner - https://academy.dqlab.id/Certificate_check/result/DQLABDVIZ2AWODEP#mycertificate
+13. Data Visualization with Python Matplotlib for Beginner - Part 1 - https://academy.dqlab.id/Certificate_check/result/DQLABDTWP1RAECOO#mycertificate
+14. Data Quality with Python for Beginner - https://academy.dqlab.id/Certificate_check/result/DQLABDVIZ2PLSJTG#mycertificate
+15. Data Analyst Project: Business Decision Research - https://academy.dqlab.id/Certificate_check/result/DQLABDVIZ2IODIUP#mycertificate
+16. Training Set dan Testing Set pada Machine Learning - https://academy.dqlab.id/Certificate_check/result/DQLABTTSMLNDDCQJ#mycertificate
+17. Binary Classification - https://academy.dqlab.id/Certificate_check/result/DQLABBC1QKJUGU#mycertificate
+18. Machine Learning: Algoritma K-Means dengan Python - https://academy.dqlab.id/Certificate_check/result/DQLABMLAK1RMQQWE#mycertificate
+19. Multiclass Classification dengan Algoritma Multinomial Naive Bayes dan kNearest Neighbors - https://academy.dqlab.id/Certificate_check/result/DQLABMC1NWLIQN#mycertificate
+20. Data Science in Marketing : Customer Segmentation with Python - Part 1 - https://academy.dqlab.id/Certificate_check/result/DQLABDSCS1HLKQLM#mycertificate
+21. Data Science in Marketing : Customer Segmentation with Python - Part 2 - https://academy.dqlab.id/Certificate_check/result/DQLABDSCS1CFEDKB#mycertificate
+Fundamental SQL Group By and Having - https://academy.dqlab.id/Certificate_check/result/DQLABFSQL3MCDMGF#mycertificate

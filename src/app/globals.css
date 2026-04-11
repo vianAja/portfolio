@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Colors from code.html tailwind config */
+  --color-primary: #7decef;
+  --color-on-secondary-container: #ffa17b;
+  --color-outline: #869393;
+  --color-inverse-on-surface: #2f3133;
+  --color-surface-container-highest: #333537;
+  --color-on-tertiary-container: #8a2e2d;
+  --color-primary-fixed: #84f4f7;
+  --color-outline-variant: #3d4949;
+  --color-secondary-container: #7b3313;
+  --color-error-container: #93000a;
+  --color-surface-bright: #37393b;
+  --color-surface-container: #1e2022;
+  --color-primary-container: #5ed0d3;
+  --color-on-primary-container: #005759;
+  --color-on-primary-fixed: #002021;
+  --color-surface: #121416;
+  --color-secondary-fixed: #ffdbce;
+  --color-surface-dim: #121416;
+  --color-tertiary: #ffd0cd;
+  --color-surface-variant: #333537;
+  --color-error: #ffb4ab;
+  --color-tertiary-fixed: #ffdad7;
+  --color-inverse-primary: #00696c;
+  --color-on-background: #e2e2e5;
+  --color-surface-container-lowest: #0c0e10;
+  --color-surface-container-low: #1a1c1e;
+  --color-on-primary-fixed-variant: #004f51;
+  --color-on-tertiary-fixed-variant: #802826;
+  --color-tertiary-fixed-dim: #ffb3ae;
+  --color-secondary: #ffb599;
+  --color-on-secondary: #5a1c00;
+  --color-on-surface: #e2e2e5;
+  --color-primary-fixed-dim: #66d7da;
+  --color-on-secondary-fixed-variant: #783111;
+  --color-on-surface-variant: #bcc9c9;
+  --color-tertiary-container: #ffa9a3;
+  --color-on-error-container: #ffdad6;
+  --color-inverse-surface: #e2e2e5;
+  --color-surface-container-high: #282a2c;
+  --color-background: #121416;
+  --color-surface-tint: #66d7da;
+  --color-on-tertiary: #611013;
+  --color-on-error: #690005;
+  --color-on-primary: #003738;
+  --color-on-secondary-fixed: #370e00;
+  --color-secondary-fixed-dim: #ffb599;
+  --color-on-tertiary-fixed: #410004;
+
+  /* Border radius */
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* Font families */
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.kinetic-marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  user-select: none;
+}
+
+.marquee-text {
+  -webkit-text-stroke: 1px rgba(125, 236, 239, 0.2);
+  color: transparent;
+}
+
+/* Universal Inline Code Typography Mimicking Evaluated Structure */
+.prose :not(pre) > code {
+  background-color: color-mix(in srgb, var(--color-error) 15%, transparent);
+  color: var(--color-error);
+  padding: 0.2em 0.45em;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-error) 20%, transparent);
+}
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: none !important;
+}
+
+/* Bullet Typography Mimicking Native Markdown Sub-lists */
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+.prose ul ul {
+  list-style-type: circle;
+}
+.prose li {
+  color: var(--color-on-surface);
+}
