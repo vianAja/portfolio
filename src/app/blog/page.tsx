@@ -169,105 +169,53 @@ export default async function BlogPage({
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Cards Mapping */}
-                  {paginatedPosts.map((post, index) => {
-                    const isFirstOnFirstPage = index === 0 && currentPage === 1;
-
-                    if (isFirstOnFirstPage) {
-                      return (
-                        <article
-                          key={post.id}
-                          className="md:col-span-2 group flex flex-col md:flex-row bg-surface-container-high rounded-3xl overflow-hidden hover:scale-[1.01] transition-all duration-500 border border-white/5 shadow-2xl mb-4"
-                        >
-                          <div className="md:w-[45%] h-64 md:h-auto overflow-hidden bg-surface-container-lowest">
-                            {post.image && (
-                              // eslint-disable-next-line @next/next/no-img-element
-                              <img
-                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
-                                alt={post.title}
-                                src={post.image}
-                              />
-                            )}
-                          </div>
-                          <div className="p-10 md:w-[55%] flex flex-col justify-center">
-                            <div className="flex flex-wrap gap-3 mb-6">
-                              {post.tags.map((tag) => (
-                                <span key={tag} className="font-label text-[0.65rem] uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1 rounded-full">{tag}</span>
-                              ))}
-                              <span className="text-[0.65rem] text-outline font-label uppercase tracking-widest flex items-center gap-1.5 ml-auto">
-                                <span className="material-symbols-outlined text-[10px]">schedule</span>
-                                12 MIN READ
-                              </span>
-                            </div>
-                            <Link href={`/blog/${post.id}`}>
-                              <h2 className="font-headline text-3xl md:text-4xl font-bold text-white mb-4 leading-tight hover:text-primary transition-colors cursor-pointer tracking-tight">
-                                {post.title}
-                              </h2>
-                            </Link>
-                            <p className="text-on-surface-variant font-body text-sm mb-8 line-clamp-3 leading-relaxed opacity-80">
-                              {post.excerpt}
-                            </p>
-                            <div className="flex items-center justify-between pt-6 border-t border-outline-variant/10 mt-auto">
-                              <span className="text-[0.65rem] text-outline font-label uppercase font-bold tracking-widest">
-                                {post.date}
-                              </span>
-                              <Link href={`/blog/${post.id}`} className="group/btn flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest">
-                                Read Journal
-                                <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">trending_flat</span>
-                              </Link>
-                            </div>
-                          </div>
-                        </article>
-                      );
-                    }
-
-                    return (
-                      <article
-                        key={post.id}
-                        className="group flex flex-col bg-surface-container-high rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-300 h-full border border-white/5"
-                      >
-                        <div className="relative h-48 overflow-hidden bg-surface-container-lowest shrink-0">
-                          {post.image && (
-                            // eslint-disable-next-line @next/next/no-img-element
-                            <img
-                              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                              alt={post.title}
-                              src={post.image}
-                            />
-                          )}
-                        </div>
-                        <div className="p-6 flex flex-col flex-grow">
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {post.tags.slice(0, 2).map((tag) => (
-                              <span
-                                key={tag}
-                                className="font-label text-[0.6rem] uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                          <Link href={`/blog/${post.id}`}>
-                            <h3 className="font-headline text-lg font-bold text-white mb-3 leading-snug hover:text-primary transition-colors cursor-pointer">
-                              {post.title}
-                            </h3>
-                          </Link>
-                          <p className="text-on-surface-variant font-body text-xs mb-6 line-clamp-2 opacity-70">
-                            {post.excerpt}
-                          </p>
-                          <div className="flex items-center justify-between pt-4 border-t border-outline-variant/10 mt-auto">
-                            <span className="text-[0.65rem] text-outline font-label uppercase">
-                              {post.date}
+                  {paginatedPosts.map((post) => (
+                    <article
+                      key={post.id}
+                      className="group flex flex-col bg-surface-container-high rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-300 h-full border border-white/5"
+                    >
+                      <div className="relative h-48 overflow-hidden bg-surface-container-lowest shrink-0">
+                        {post.image && (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                            alt={post.title}
+                            src={post.image}
+                          />
+                        )}
+                      </div>
+                      <div className="p-6 flex flex-col flex-grow">
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {post.tags.slice(0, 2).map((tag) => (
+                            <span
+                              key={tag}
+                              className="font-label text-[0.6rem] uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded"
+                            >
+                              {tag}
                             </span>
-                            <Link href={`/blog/${post.id}`}>
-                              <span className="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform text-lg">
-                                trending_flat
-                              </span>
-                            </Link>
-                          </div>
+                          ))}
                         </div>
-                      </article>
-                    );
-                  })}
+                        <Link href={`/blog/${post.id}`}>
+                          <h3 className="font-headline text-lg font-bold text-white mb-3 leading-snug hover:text-primary transition-colors cursor-pointer">
+                            {post.title}
+                          </h3>
+                        </Link>
+                        <p className="text-on-surface-variant font-body text-xs mb-6 line-clamp-2 opacity-70">
+                          {post.excerpt}
+                        </p>
+                        <div className="flex items-center justify-between pt-4 border-t border-outline-variant/10 mt-auto">
+                          <span className="text-[0.65rem] text-outline font-label uppercase">
+                            {post.date}
+                          </span>
+                          <Link href={`/blog/${post.id}`}>
+                            <span className="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform text-lg">
+                              trending_flat
+                            </span>
+                          </Link>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
                 </div>
               )}
 
