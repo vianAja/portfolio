@@ -2,6 +2,7 @@ import { getAllProjects } from "@/lib/projects";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata = {
   title: "Projects | NAJWAN",
@@ -17,7 +18,7 @@ export default function ProjectsPage() {
       <main className="pt-32 pb-20">
         {/* Hero */}
         <section className="max-w-7xl mx-auto px-8 mb-20 relative overflow-hidden">
-          <div className="flex flex-col md:flex-row items-end justify-between gap-8">
+          <ScrollReveal className="flex flex-col md:flex-row items-end justify-between gap-8">
             <div className="max-w-2xl">
               <span className="font-label text-[0.6875rem] uppercase tracking-[0.2em] text-primary mb-4 block">
                 Selected Work
@@ -33,7 +34,7 @@ export default function ProjectsPage() {
                 DevOps, and Machine Learning. Each one built with precision and care.
               </p>
             </div>
-          </div>
+          </ScrollReveal>
           {/* Background text */}
           <div className="absolute -bottom-10 -right-20 opacity-5 select-none pointer-events-none">
             <span className="font-headline text-[12rem] font-bold uppercase text-white">
@@ -57,7 +58,7 @@ export default function ProjectsPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {projects.map((project, idx) => (
-                <div
+                <ScrollReveal
                   key={project.slug}
                   className={`group ${idx % 2 === 1 ? "mt-0 md:mt-24" : ""}`}
                 >
@@ -133,7 +134,7 @@ export default function ProjectsPage() {
                       north_east
                     </span>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           )}

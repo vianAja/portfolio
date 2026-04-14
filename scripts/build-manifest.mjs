@@ -4,6 +4,7 @@ import matter from "gray-matter";
 
 const postsDir = path.join(process.cwd(), "posts");
 const docsDir = path.join(process.cwd(), "docs");
+const timelinesDir = path.join(process.cwd(), "timelines");
 const outputDir = path.join(process.cwd(), "src/data");
 
 if (!fs.existsSync(outputDir)) {
@@ -84,9 +85,40 @@ function processProjects() {
   console.log(`Successfully generated projects manifest with ${data.length} projects.`);
 }
 
+function processTimelines() {
+  if (!fs.existsSync(timelinesDir)) return [];
+  console.log("Processing timelines...");
+  const files = fs.readdirSync(timelinesDir).filter(f => f.endsWith(".md") && fs.statSync(path.join(timelinesDir, f)).size > 0);
+  
+  const data = files.map(filename => {
+    const filePath = path.join(timelinesDir, filename);
+    const raw = fs.readFileSync(filePath, "utf8");
+    const { data: frontmatter, content } = matter(raw);
+    const id = filename.replace(/\.md$/, "");
+    
+    return {
+      meta: {
+        id,
+        title: frontmatter.title ?? id,
+        company: frontmatter.company ?? "",
+        date: frontmatter.date ? String(frontmatter.date) : "2000-01-01",
+        displayDate: frontmatter.displayDate ?? "",
+        icon: frontmatter.icon ?? "work",
+        image: frontmatter.image ?? null,
+        tags: frontmatter.tags ?? [],
+      },
+      content
+    };
+  });
+  
+  fs.writeFileSync(path.join(outputDir, "generated-timelines-data.json"), JSON.stringify(data, null, 2));
+  console.log(`Successfully generated timelines manifest with ${data.length} entries.`);
+}
+
 try {
   processBlog();
   processProjects();
+  processTimelines();
 } catch (error) {
   console.error("Error generating manifests:", error);
   process.exit(1);

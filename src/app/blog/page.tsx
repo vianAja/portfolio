@@ -2,7 +2,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { getAllBlogPosts } from "@/lib/blog";
 import Link from "next/link";
-import CategoryDropdown from "@/components/CategoryDropdown";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata = {
   title: "Blog | NAJWAN",
@@ -50,7 +50,7 @@ export default async function BlogPage({
       <main className="pt-32 pb-20">
         {/* Hero */}
         <section className="max-w-7xl mx-auto px-8 mb-20 relative overflow-hidden">
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
+          <ScrollReveal className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
             <div className="max-w-2xl">
               <span className="font-label text-[0.6875rem] uppercase tracking-[0.2em] text-primary mb-4 block">
                 Knowledge Base
@@ -60,7 +60,7 @@ export default async function BlogPage({
                 <span className="text-primary">Blogs</span>
               </h1>
             </div>
-          </div>
+          </ScrollReveal>
           <div className="absolute -bottom-10 -right-20 opacity-5 select-none pointer-events-none">
             <span className="font-headline text-[12rem] font-bold uppercase text-white">
               INSIGHTS
@@ -76,7 +76,7 @@ export default async function BlogPage({
             <aside className="hidden lg:block lg:col-span-3">
               <div className="sticky top-32 space-y-12">
                 {/* Search Sidebar */}
-                <div>
+                <ScrollReveal>
                   <h3 className="font-headline text-sm font-bold text-outline-variant mb-4 tracking-widest uppercase">
                     Search
                   </h3>
@@ -95,10 +95,10 @@ export default async function BlogPage({
                       </button>
                     </div>
                   </form>
-                </div>
+                </ScrollReveal>
 
                 {/* Categories Sidebar */}
-                <div>
+                <ScrollReveal>
                   <h3 className="font-headline text-sm font-bold text-outline-variant mb-4 tracking-widest uppercase">
                     Categories
                   </h3>
@@ -120,7 +120,7 @@ export default async function BlogPage({
                       </Link>
                     ))}
                   </nav>
-                </div>
+                </ScrollReveal>
               </div>
             </aside>
 
@@ -170,9 +170,9 @@ export default async function BlogPage({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Cards Mapping */}
                   {paginatedPosts.map((post) => (
-                    <article
+                    <ScrollReveal
                       key={post.id}
-                      className="group flex flex-col bg-surface-container-high rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-300 h-full border border-white/5"
+                      className="group flex flex-col bg-surface-container-high rounded-2xl overflow-hidden hover:scale-[1.03] transition-all duration-300 h-full border border-white/5 relative"
                     >
                       <div className="relative h-48 overflow-hidden bg-surface-container-lowest shrink-0">
                         {post.image && (
@@ -214,14 +214,14 @@ export default async function BlogPage({
                           </Link>
                         </div>
                       </div>
-                    </article>
+                    </ScrollReveal>
                   ))}
                 </div>
               )}
 
               {/* Pagination UI */}
               {totalPages > 1 && (
-                <div className="mt-16 flex items-center justify-center gap-2">
+                <ScrollReveal className="mt-16 flex items-center justify-center gap-2">
                   <Link
                     href={`/blog?page=${currentPage - 1}${selectedCategory ? `&category=${selectedCategory}` : ""}`}
                     className={`p-2 rounded-xl border border-outline-variant/10 transition-all ${
@@ -259,7 +259,7 @@ export default async function BlogPage({
                   >
                     <span className="material-symbols-outlined">chevron_right</span>
                   </Link>
-                </div>
+                </ScrollReveal>
               )}
             </div>
           </div></section>
