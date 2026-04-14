@@ -1,0 +1,2 @@
+Introduction to Linux LFS101 = https://www.credly.com/badges/481cc9c8-1400-4243-aa12-626073039df9/public_url
+Secure AI/ML-Driven Software Development (LFEL1012) = https://www.credly.com/badges/e12b0066-1408-4ebd-9399-0fa815cc8474/public_url

@@ -113,3 +113,38 @@ body {
 .prose li {
   color: var(--color-on-surface);
 }
+
+.glass-card {
+  background: rgba(40, 42, 44, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px rgba(61, 73, 73, 0.4);
+  color: transparent;
+}
+
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: #5ED0D3;
+  box-shadow: 0 0 15px rgba(94, 208, 211, 0.3);
+}
+
+@media (max-width: 768px) {
+  .timeline-track::before {
+      left: 20px;
+      transform: none;
+  }
+}
+
+.connector-line {
+  height: 4px;
+  background-color: #5ED0D3;
+  width: 40px;
+}

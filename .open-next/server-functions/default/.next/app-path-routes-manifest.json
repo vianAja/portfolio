@@ -1,0 +1,13 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/cert/[id]/route": "/api/cert/[id]",
+  "/blog/[slug]/page": "/blog/[slug]",
+  "/blog/page": "/blog",
+  "/contact/page": "/contact",
+  "/icon.svg/route": "/icon.svg",
+  "/page": "/",
+  "/projects/[slug]/page": "/projects/[slug]",
+  "/projects/page": "/projects",
+  "/timeline/page": "/timeline"
+}
