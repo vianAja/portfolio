@@ -5,6 +5,7 @@ import matter from "gray-matter";
 const postsDir = path.join(process.cwd(), "posts");
 const projectsDir = path.join(process.cwd(), "project");
 const timelinesDir = path.join(process.cwd(), "timelines");
+const competitionDir = path.join(process.cwd(), "competition");
 const outputDir = path.join(process.cwd(), "src/data");
 
 if (!fs.existsSync(outputDir)) {
@@ -118,10 +119,47 @@ function processTimelines() {
   console.log(`Successfully generated timelines manifest with ${data.length} entries.`);
 }
 
+function processCompetitions() {
+  if (!fs.existsSync(competitionDir)) return [];
+  console.log("Processing competitions...");
+  const files = fs.readdirSync(competitionDir).filter(f => f.endsWith(".md") && fs.statSync(path.join(competitionDir, f)).size > 0);
+
+  const data = files.map(filename => {
+    const filePath = path.join(competitionDir, filename);
+    const raw = fs.readFileSync(filePath, "utf8");
+    const { data: frontmatter, content } = matter(raw);
+    const slug = filename.replace(/\.md$/, "");
+
+    return {
+      meta: {
+        slug,
+        title: frontmatter.title ?? slug,
+        organizer: frontmatter.organizer ?? "",
+        level: frontmatter.level ?? "",
+        year: frontmatter.year ? String(frontmatter.year) : "",
+        result: frontmatter.result ?? "",
+        date: frontmatter.date ? String(frontmatter.date) : "2000-01-01",
+        outline: Array.isArray(frontmatter.outline)
+          ? frontmatter.outline.filter((item) => typeof item === "string")
+          : [],
+        certificateTitle: frontmatter.certificateTitle ?? frontmatter.title ?? slug,
+        certificateImage: frontmatter.certificateImage ?? "/assets/img/thumb.png",
+        certificateFile: frontmatter.certificateFile ?? null,
+        certificateLink: frontmatter.certificateLink ?? null,
+      },
+      content
+    };
+  });
+
+  fs.writeFileSync(path.join(outputDir, "generated-competition-data.json"), JSON.stringify(data, null, 2));
+  console.log(`Successfully generated competition manifest with ${data.length} entries.`);
+}
+
 try {
   processBlog();
   processProjects();
   processTimelines();
+  processCompetitions();
 } catch (error) {
   console.error("Error generating manifests:", error);
   process.exit(1);

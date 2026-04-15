@@ -1,14 +1,25 @@
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import CertificateCarousel from "@/components/CertificateCarousel";
+import CertificateCarousel, { type CertificateCard } from "@/components/CertificateCarousel";
 import Link from "next/link";
 import { getAllProjects } from "@/lib/projects";
 import { getAllBlogPosts } from "@/lib/blog";
 import ScrollReveal from "@/components/ScrollReveal";
+import { getAllCompetitions } from "@/lib/competition";
 
 export default function Home() {
   const featuredProjects = getAllProjects().slice(0, 2);
   const recentPosts = getAllBlogPosts().slice(0, 3);
+  const competitionCards: CertificateCard[] = getAllCompetitions().map((entry) => ({
+    id: entry.meta.slug,
+    title: entry.meta.certificateTitle,
+    issuer: `${entry.meta.level} • ${entry.meta.organizer}`,
+    year: entry.meta.year,
+    image: entry.meta.certificateImage,
+    pdfFile: entry.meta.certificateFile,
+    link: entry.meta.certificateLink ?? undefined,
+    competitionSlug: entry.meta.slug,
+  }));
   return (
     <>
       <NavBar />
@@ -119,7 +130,7 @@ export default function Home() {
 
         {/* Certificates Section */}
         <ScrollReveal>
-          <CertificateCarousel />
+          <CertificateCarousel certificates={competitionCards} />
         </ScrollReveal>
 
         {/* Featured Projects */}
