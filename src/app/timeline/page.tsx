@@ -31,7 +31,7 @@ export default function TimelinePage() {
             Professional Arc
           </span>
           <h2 className="text-5xl md:text-7xl font-headline font-bold tracking-tight mb-6">
-            A Journey of <span className="text-primary">Kinetic</span> Growth
+            A Journey of <span className="text-primary">Najwan</span>
           </h2>
           <p className="max-w-2xl mx-auto text-on-surface-variant text-lg leading-relaxed">
             Mapping the technical milestones, educational foundations, and architectural breakthroughs that define my creative trajectory.
@@ -128,8 +128,10 @@ export default function TimelinePage() {
                   </div>
 
                   {/* Desktop Date */}
-                  <div className={`absolute top-1/2 -translate-y-1/2 hidden md:block w-[100px] ${isRight ? "left-[-130px] text-right" : "right-[-130px] text-left"}`}>
-                    <span className="font-label text-primary font-bold whitespace-nowrap text-sm">{timeline.meta.displayDate}</span>
+                  <div className={`absolute top-1/2 -translate-y-1/2 hidden md:block z-20 w-[170px] ${isRight ? "left-[-205px] text-right" : "right-[-205px] text-left"}`}>
+                    <span className="inline-block font-label text-primary font-bold whitespace-nowrap text-sm bg-surface/90 border border-primary/30 rounded-md px-2.5 py-1 backdrop-blur-sm">
+                      {timeline.meta.displayDate}
+                    </span>
                   </div>
                 </div>
               </ScrollReveal>

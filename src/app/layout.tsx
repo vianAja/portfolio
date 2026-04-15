@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SnowflakeCursor from "@/components/SnowflakeCursor";
 
 export const metadata: Metadata = {
   title: "Portfolio Najwan",
@@ -24,7 +25,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <SnowflakeCursor />
+        {children}
+      </body>
     </html>
   );
 }
