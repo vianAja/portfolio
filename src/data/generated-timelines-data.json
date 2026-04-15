@@ -1,70 +1,53 @@
 [
   {
     "meta": {
-      "id": "1-bs-computer-science",
-      "title": "B.S. Computer Science",
-      "company": "MIT RESEARCH",
-      "date": "2016-01-01",
-      "displayDate": "2016 - 2020",
+      "id": "1-state-vocational-high-school-4-kendal",
+      "title": "State Vocational High School 4 Kendal",
+      "company": "Education",
+      "date": "2022-06-01",
+      "displayDate": "Jun 2022 - Jun 2025",
       "icon": "school",
-      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAz0c34ogb3OSbq0HjPzHBOtLErSUmhNIHFc28v_3OcNTVFpsv9uldBWnGVH8qJYNWtAxBJkaVjWpNF1O3ZEkXVyvzEHVZBjcrS7KEtWOth_sbDIiNh-MQRRJxz08xjzYx90HcMN_VXj8duJlQ08tuHzQ9kWHG4SdR6yreAcc5e2B89J8H7D3ZifSeR050VKl648vecKQqipdg4JyTzw4Zm6Mr-AeaNT9Ej2YbWhs856ysHIlplE2T7atVOzDblLIpl3S3zSVqUB1GK",
-      "tags": [],
-      "projects": []
-    },
-    "content": "Specialized in Computational Design and Artificial Intelligence. Graduated with Honors. Published thesis on 'Kinetic UI Systems in Low-Latency Environments'.\n"
-  },
-  {
-    "meta": {
-      "id": "2-full-stack-engineer",
-      "title": "Full Stack Engineer",
-      "company": "NEURAL ARCHITECTS",
-      "date": "2020-01-01",
-      "displayDate": "2020 - 2022",
-      "icon": "terminal",
       "image": "",
       "tags": [
-        "TYPESCRIPT",
-        "NODE.JS",
-        "REACT"
+        "EDUCATION",
+        "VOCATIONAL"
       ],
       "projects": []
     },
-    "content": "Developed high-fidelity UI/UX frameworks for AI-driven analytics dashboards. Integrated complex Three.js visualizations with real-time sensor data.\n"
+    "content": "Completed vocational studies focused on practical technical foundations, teamwork, and project-based execution.\n"
   },
   {
     "meta": {
-      "id": "3-project-aegis",
-      "title": "Project 'Aegis' Launch",
-      "company": "OPEN SOURCE CONTRIBUTION",
-      "date": "2022-10-01",
-      "displayDate": "OCT 2022",
-      "icon": "bolt",
-      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuC-41N79vusOZmUBx47HV2Fr670b5OU1RitJl3Ws2uBy8aYdSSCXT_GXJPSwgX9PvQogqmYU7Tk5q5XpPxgxWjXsQooiwrttUgGoITQWk4stqGuhUJyk0nfgxwzvSoJ6e3MjEjxez93jXfN-DyxRqTNodCUN-NFRKtnnw4rqI9aY8uxueo_BwIUV2RcZUCLDwnyGtCq8tIMHSdFnJene96oO3wV4xkWVum10hyFsqDhNlHwGk-DOCFV7Q0w7l3x99ZW5IooOkaJLDQf",
-      "tags": [],
-      "projects": [
-        "2026-04-10-n8n-adinusa-automation"
-      ]
-    },
-    "content": "Released an end-to-end encrypted telemetry protocol that gained 5,000+ stars on GitHub within the first month.\n"
-  },
-  {
-    "meta": {
-      "id": "4-senior-architect",
-      "title": "Senior Systems Architect",
-      "company": "CYBERDYN LABS",
-      "date": "2023-01-01",
-      "displayDate": "2023 - PRESENT",
-      "icon": "work",
-      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuA8bqyMK_x55qYtrsludgjc7lT3H21SOABOAfvHaxTwFzWxsNXlDBn0roQEOGvHwvAiCiL-a-CgPVvZNkqXPyr7shr8sZT7JKo7p_A4_riwgHiTJFbn2zy1nWcnj26ZjGI7-Npw65V07vKafPq6bOKKwjVAfsJf0b-hrAduDRN3OHBupAOBjD2EbYMzMgW4kpZb133oa-m6EZ6DHqiN_PTUBnXLIf0rT6fZ40JOXhIikUVAZUOOTYqVO3SzvWHmNuxPkpdSSL9Z9cSc",
+      "id": "2-freelance-training-team-pt-boer-technology",
+      "title": "Freelance Training Team",
+      "company": "PT Boer Technology",
+      "date": "2025-05-01",
+      "displayDate": "Mei 2025 - Oct 2025",
+      "icon": "groups",
+      "image": "",
       "tags": [
-        "RUST",
-        "KUBERNETES",
-        "GOLANG"
+        "TRAINING",
+        "FREELANCE"
       ],
-      "projects": [
-        "2026-04-10-oracle-19c-trainer"
-      ]
+      "projects": []
     },
-    "content": "Leading the development of distributed real-time data pipelines and core neural-network optimization engines. Orchestrating a team of 12 engineers.\n"
+    "content": "Supported training delivery and technical mentoring activities for participants in hands-on cloud and infrastructure learning sessions.\n"
+  },
+  {
+    "meta": {
+      "id": "3-jr-training-team-pt-boer-technology",
+      "title": "Jr Training Team",
+      "company": "PT Boer Technology",
+      "date": "2025-10-01",
+      "displayDate": "Oct 2025 - Present",
+      "icon": "work",
+      "image": "",
+      "tags": [
+        "TRAINING",
+        "JUNIOR"
+      ],
+      "projects": []
+    },
+    "content": "Working as a junior training team member to assist content delivery, lab guidance, and learning support for technical programs.\n"
   }
 ]
