@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 
 const postsDir = path.join(process.cwd(), "posts");
-const docsDir = path.join(process.cwd(), "docs");
+const projectsDir = path.join(process.cwd(), "project");
 const timelinesDir = path.join(process.cwd(), "timelines");
 const outputDir = path.join(process.cwd(), "src/data");
 
@@ -57,12 +57,12 @@ function processBlog() {
 }
 
 function processProjects() {
-  if (!fs.existsSync(docsDir)) return [];
+  if (!fs.existsSync(projectsDir)) return [];
   console.log("Processing projects...");
-  const files = fs.readdirSync(docsDir).filter(f => f.endsWith(".md") && fs.statSync(path.join(docsDir, f)).size > 0);
+  const files = fs.readdirSync(projectsDir).filter(f => f.endsWith(".md") && fs.statSync(path.join(projectsDir, f)).size > 0);
   
   const data = files.map(filename => {
-    const filePath = path.join(docsDir, filename);
+    const filePath = path.join(projectsDir, filename);
     const raw = fs.readFileSync(filePath, "utf8");
     const { data: frontmatter, content } = matter(raw);
     const slug = filename.replace(/\.md$/, "");

@@ -52,7 +52,7 @@ export default function ProjectsPage() {
               </span>
               <p className="text-on-surface-variant font-body text-lg">
                 No projects found. Add <code className="text-primary bg-surface-container-high px-2 py-1 rounded text-sm">.md</code> files to the{" "}
-                <code className="text-primary bg-surface-container-high px-2 py-1 rounded text-sm">/docs</code> folder.
+                <code className="text-primary bg-surface-container-high px-2 py-1 rounded text-sm">/project</code> folder.
               </p>
             </div>
           ) : (

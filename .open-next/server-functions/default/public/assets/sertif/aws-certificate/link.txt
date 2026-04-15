@@ -1,3 +1,0 @@
-AWS Certified Cloud Practitioner = https://www.credly.com/badges/2f2a6e67-4390-4bed-b902-cd24c4f74bca/public_url
-AWS Educate Introduction to Generative AI - Training Badge = https://www.credly.com/badges/a6f10957-1a80-41a4-9075-b05f930139e8/public_url
-AWS re/Start Graduate = https://www.credly.com/badges/8bdf060c-bbf9-4b55-8aad-11fab80a7c71/public_url

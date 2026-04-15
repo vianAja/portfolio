@@ -1,3 +1,0 @@
-Certified Cybersecurity Educator Professional (CCEP) = https://courses.redteamleaders.com/exam-completion/17bd590f7a50921c
-Certified Red Team Operations Management (CRTOM) = https://courses.redteamleaders.com/exam-completion/4e479657e2f8c7d1
-Certified Threat Intelligence & Governance Analyst (CTIGA) = https://courses.redteamleaders.com/exam-completion/b12f1d747a75307c

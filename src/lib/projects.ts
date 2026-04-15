@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const docsDir = path.join(process.cwd(), "docs");
+const projectsDir = path.join(process.cwd(), "project");
 
 export interface ProjectMeta {
   slug: string;
@@ -22,14 +22,14 @@ interface Project {
 // Hybrid Loader: Support for Edge (Cloudflare) via Build-time JSON
 export function getAllProjects(): ProjectMeta[] {
   if (process.env.NODE_ENV === "development") {
-    if (!fs.existsSync(docsDir)) return [];
+    if (!fs.existsSync(projectsDir)) return [];
     const files = fs
-      .readdirSync(docsDir)
-      .filter((f) => f.endsWith(".md") && fs.statSync(path.join(docsDir, f)).size > 0);
+      .readdirSync(projectsDir)
+      .filter((f) => f.endsWith(".md") && fs.statSync(path.join(projectsDir, f)).size > 0);
 
     return files
       .map((filename) => {
-        const filePath = path.join(docsDir, filename);
+        const filePath = path.join(projectsDir, filename);
         const raw = fs.readFileSync(filePath, "utf8");
         const { data } = matter(raw);
         const slug = filename.replace(/\.md$/, "");
@@ -60,7 +60,7 @@ export function getAllProjects(): ProjectMeta[] {
 
 export function getProjectBySlug(slug: string): Project | null {
   if (process.env.NODE_ENV === "development") {
-    const filePath = path.join(docsDir, `${slug}.md`);
+    const filePath = path.join(projectsDir, `${slug}.md`);
     if (!fs.existsSync(filePath)) return null;
     const raw = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(raw);
