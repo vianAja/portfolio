@@ -9,5 +9,7 @@ tags:
   - RUST
   - KUBERNETES
   - GOLANG
+projects:
+  - "2026-04-10-oracle-19c-trainer"
 ---
 Leading the development of distributed real-time data pipelines and core neural-network optimization engines. Orchestrating a team of 12 engineers.

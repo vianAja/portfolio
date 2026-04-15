@@ -13,6 +13,7 @@ export interface TimelineMeta {
   icon: string;
   image?: string;
   tags: string[];
+  projects: string[];
 }
 
 export interface TimelineEntry {
@@ -44,6 +45,9 @@ export function getAllTimelines(): TimelineEntry[] {
             icon: data.icon ?? "work",
             image: data.image ?? null,
             tags: data.tags ?? [],
+            projects: Array.isArray(data.projects)
+              ? data.projects.filter((project): project is string => typeof project === "string")
+              : [],
           },
           content
         } as TimelineEntry;

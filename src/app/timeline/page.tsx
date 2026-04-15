@@ -2,6 +2,8 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { getAllTimelines } from "@/lib/timeline";
+import { getAllProjects } from "@/lib/projects";
+import Link from "next/link";
 
 export const metadata = {
   title: "My Timeline | Kinetic Portfolio",
@@ -10,6 +12,8 @@ export const metadata = {
 
 export default function TimelinePage() {
   const timelines = getAllTimelines();
+  const projects = getAllProjects();
+  const projectsBySlug = new Map(projects.map((project) => [project.slug, project]));
 
   return (
     <>
@@ -41,6 +45,9 @@ export default function TimelinePage() {
           {timelines.map((timeline, index) => {
             // Alternate left/right based on index (even = right side, odd = left side)
             const isRight = index % 2 === 0;
+            const relatedProjects = (timeline.meta.projects ?? [])
+              .map((slug) => projectsBySlug.get(slug))
+              .filter((project): project is NonNullable<(typeof projects)[number]> => Boolean(project));
 
             return (
               <ScrollReveal 
@@ -93,6 +100,25 @@ export default function TimelinePage() {
                               {tag}
                             </span>
                           ))}
+                        </div>
+                      )}
+
+                      {relatedProjects.length > 0 && (
+                        <div className="mt-5 pt-4 border-t border-outline-variant/15">
+                          <p className="font-label text-[0.625rem] uppercase tracking-[0.12em] text-outline-variant mb-2">
+                            Related Projects
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {relatedProjects.map((project) => (
+                              <Link
+                                key={project.slug}
+                                href={`/projects/${project.slug}`}
+                                className="px-3 py-1.5 rounded-md text-[0.6875rem] font-label uppercase tracking-[0.08em] bg-primary/10 text-primary hover:bg-primary hover:text-on-primary-container transition-colors"
+                              >
+                                {project.title}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       )}
                     </div>

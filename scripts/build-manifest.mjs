@@ -106,6 +106,9 @@ function processTimelines() {
         icon: frontmatter.icon ?? "work",
         image: frontmatter.image ?? null,
         tags: frontmatter.tags ?? [],
+        projects: Array.isArray(frontmatter.projects)
+          ? frontmatter.projects.filter((project) => typeof project === "string")
+          : [],
       },
       content
     };
