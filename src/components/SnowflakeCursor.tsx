@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { characterCursor } from "cursor-effects";
+import { bubbleCursor } from "cursor-effects";
 
 export default function SnowflakeCursor() {
   useEffect(() => {
@@ -11,10 +11,8 @@ export default function SnowflakeCursor() {
 
     if (prefersReducedMotion || isCoarsePointer) return;
 
-    const effect = characterCursor({
+    const effect = bubbleCursor({
       element: document.body,
-      characters: ["❄️"],
-      colors: ["#7DECEF", "#5ED0D3", "#AEEFF3"],
     });
 
     return () => {
