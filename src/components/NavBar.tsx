@@ -5,9 +5,7 @@ import Link from "next/link";
 
 const navLinks = [
   { href: "/projects", label: "Projects" },
-  { href: "/competition", label: "Competition" },
   { href: "/blog", label: "Blog" },
-  { href: "/timeline", label: "Timeline" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -15,25 +13,21 @@ export default function NavBar({ active }: { active?: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-[#121416]/60 backdrop-blur-xl border-b border-white/5">
-      <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-        <Link
-          href="/"
-          className="text-2xl font-bold tracking-tighter text-white font-headline"
-        >
+    <nav className="fixed top-0 w-full z-50 glass-surface border-b border-outline-variant/25">
+      <div className="flex justify-between items-center px-6 md:px-8 py-5 max-w-7xl mx-auto">
+        <Link href="/" className="text-xl md:text-2xl font-extrabold tracking-tight text-on-surface font-headline">
           NAJWAN
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-7 font-headline tracking-tight text-sm uppercase font-semibold">
           {navLinks.map(({ href, label }) => (
             <Link
               key={label}
               href={href}
-              className={`font-headline tracking-tighter uppercase text-sm transition-colors pb-0.5 ${
+              className={`pb-1 transition-colors ${
                 active === label
                   ? "text-primary border-b-2 border-primary"
-                  : "text-gray-400 hover:text-white"
+                  : "text-on-surface/55 hover:text-primary"
               }`}
             >
               {label}
@@ -41,34 +35,31 @@ export default function NavBar({ active }: { active?: string }) {
           ))}
           <Link
             href="/"
-            className="bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-headline tracking-tighter uppercase text-sm px-6 py-2 rounded-full font-bold hover:scale-95 transition-all duration-200 ml-4"
+            className="bg-primary text-on-primary px-5 py-2.5 rounded-md font-label text-xs tracking-[0.12em]"
           >
             HOME
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button 
+        <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-white flex items-center justify-center p-2"
+          className="md:hidden text-on-surface flex items-center justify-center p-2"
+          aria-label="Toggle menu"
         >
-          <span className="material-symbols-outlined text-3xl">
-            {isMenuOpen ? 'close' : 'menu'}
-          </span>
+          <span className="material-symbols-outlined text-3xl">{isMenuOpen ? "close" : "menu"}</span>
         </button>
       </div>
 
-      {/* Mobile Menu Tray */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[#121416] border-b border-white/10 px-8 py-8 animate-in slide-in-from-top duration-300">
-          <div className="flex flex-col gap-6">
+        <div className="md:hidden px-6 py-6 border-t border-outline-variant/25 bg-surface-container-lowest">
+          <div className="flex flex-col gap-5">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={label}
                 href={href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`font-headline tracking-tighter uppercase text-2xl ${
-                  active === label ? "text-primary" : "text-gray-400"
+                className={`font-headline tracking-tight uppercase text-xl ${
+                  active === label ? "text-primary" : "text-on-surface/70"
                 }`}
               >
                 {label}
@@ -77,9 +68,9 @@ export default function NavBar({ active }: { active?: string }) {
             <Link
               href="/"
               onClick={() => setIsMenuOpen(false)}
-              className="mt-4 bg-primary text-on-primary-container font-headline tracking-tighter uppercase text-center py-4 rounded-xl font-bold"
+              className="mt-2 bg-primary text-on-primary font-label uppercase text-center py-3 rounded-lg font-semibold text-sm"
             >
-              HOME
+              Home
             </Link>
           </div>
         </div>

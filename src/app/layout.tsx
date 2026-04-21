@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import SnowflakeCursor from "@/components/SnowflakeCursor";
 
 export const metadata: Metadata = {
   title: "Portfolio Najwan",
@@ -14,10 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <link
@@ -25,10 +24,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>
-        <SnowflakeCursor />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

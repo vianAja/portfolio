@@ -8,7 +8,8 @@
     "build:cf": "opennextjs-cloudflare build",
     "deploy": "opennextjs-cloudflare deploy",
     "start": "next start -p 3001",
-    "lint": "eslint"
+    "lint": "eslint",
+    "start:minimalist": "next start -p 3002"
   },
   "dependencies": {
     "cursor-effects": "^1.0.18",

@@ -44,7 +44,7 @@ function HeadingWithAnchor({
           type="button"
           onClick={() => onCopy(id)}
           aria-label="Copy heading link"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-outline-variant/20 bg-surface-container-high text-primary opacity-0 transition hover:text-primary group-hover:opacity-100"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-outline-variant/25 bg-surface-container-low text-primary opacity-0 transition group-hover:opacity-100"
         >
           <span className="material-symbols-outlined text-base">link</span>
         </button>
@@ -71,7 +71,7 @@ export default function MarkdownViewer({ content }: { content: string }) {
   };
 
   return (
-    <div className="prose prose-invert max-w-none">
+    <div className="prose max-w-none prose-headings:font-headline prose-headings:text-on-surface prose-p:text-on-surface-variant prose-li:text-on-surface-variant prose-strong:text-on-surface">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
@@ -81,7 +81,7 @@ export default function MarkdownViewer({ content }: { content: string }) {
             return (
               <HeadingWithAnchor
                 id={id}
-                className="font-headline text-4xl md:text-5xl font-bold text-white tracking-tight mt-12 mb-6"
+                className="font-headline text-4xl md:text-5xl font-extrabold text-on-surface tracking-tight mt-10 mb-5"
                 onCopy={copyHeadingLink}
               >
                 <h1 {...props}>{children}</h1>
@@ -94,7 +94,7 @@ export default function MarkdownViewer({ content }: { content: string }) {
             return (
               <HeadingWithAnchor
                 id={id}
-                className="font-headline text-3xl font-bold text-white tracking-tight mt-12 mb-4"
+                className="font-headline text-3xl font-bold text-on-surface tracking-tight mt-10 mb-4"
                 onCopy={copyHeadingLink}
               >
                 <h2 {...props}>{children}</h2>
@@ -107,7 +107,7 @@ export default function MarkdownViewer({ content }: { content: string }) {
             return (
               <HeadingWithAnchor
                 id={id}
-                className="font-headline text-2xl font-bold text-white tracking-tight mt-10 mb-3"
+                className="font-headline text-2xl font-semibold text-on-surface tracking-tight mt-8 mb-3"
                 onCopy={copyHeadingLink}
               >
                 <h3 {...props}>{children}</h3>
@@ -115,9 +115,9 @@ export default function MarkdownViewer({ content }: { content: string }) {
             );
           },
           p: ({ node, ...props }) => (
-            <p className="text-on-surface/80 font-body text-lg leading-[1.6] my-4" {...props} />
+            <p className="text-on-surface-variant font-body text-lg leading-[1.75] my-4" {...props} />
           ),
-          strong: ({ node, ...props }) => <strong className="text-white font-bold" {...props} />,
+          strong: ({ node, ...props }) => <strong className="text-on-surface font-semibold" {...props} />,
           pre: ({ node, children, ...props }) => {
             const codeElement =
               children && typeof children === "object" && "props" in children
@@ -125,32 +125,23 @@ export default function MarkdownViewer({ content }: { content: string }) {
                 : undefined;
             const match = /language-(\w+)/.exec(codeElement?.className ?? "");
             return (
-              <div className="rounded-xl overflow-x-auto bg-surface-container-lowest border border-outline-variant/10 my-6 w-full shadow-lg">
+              <div className="rounded-xl overflow-x-auto bg-surface-container-low border border-outline-variant/25 my-6 w-full">
                 {match && (
-                  <div className="flex items-center justify-between px-4 py-2 bg-surface-container-high border-b border-outline-variant/10 min-w-max">
-                    <span className="font-label text-[0.6875rem] text-outline uppercase tracking-widest">
+                  <div className="flex items-center justify-between px-4 py-2 bg-surface-container-high border-b border-outline-variant/20 min-w-max">
+                    <span className="font-label text-[0.6875rem] text-on-surface-variant uppercase tracking-widest">
                       {match[1]}
                     </span>
-                    <div className="flex gap-1.5">
-                      <div className="w-2 h-2 rounded-full bg-error/40" />
-                      <div className="w-2 h-2 rounded-full bg-primary/40" />
-                      <div className="w-2 h-2 rounded-full bg-secondary/40" />
-                    </div>
                   </div>
                 )}
-                <pre
-                  className="p-6 text-sm font-mono text-primary-fixed/80 leading-relaxed w-full min-w-max whitespace-pre"
-                  {...props}
-                >
+                <pre className="p-6 text-sm font-mono text-on-surface leading-relaxed w-full min-w-max whitespace-pre" {...props}>
                   {children}
                 </pre>
               </div>
             );
           },
           blockquote: ({ node, ...props }) => (
-            <blockquote className="relative py-8 px-12 bg-surface-container-low rounded-xl border-l-4 border-primary my-8">
-              <span className="absolute top-4 left-4 text-primary/20 text-6xl font-headline">&quot;</span>
-              <div className="text-xl font-headline italic text-white leading-relaxed">{props.children}</div>
+            <blockquote className="relative py-6 px-8 bg-surface-container-low rounded-xl border-l-4 border-primary my-7">
+              <div className="text-xl font-headline italic text-on-surface leading-relaxed">{props.children}</div>
             </blockquote>
           ),
         }}
@@ -159,7 +150,7 @@ export default function MarkdownViewer({ content }: { content: string }) {
       </ReactMarkdown>
 
       {copiedId && (
-        <div className="fixed bottom-5 right-5 z-50 rounded-lg border border-outline-variant/30 bg-surface-container-high px-4 py-2 text-sm text-primary shadow-lg">
+        <div className="fixed bottom-5 right-5 z-50 rounded-lg border border-outline-variant/30 bg-surface-container-lowest px-4 py-2 text-sm text-primary shadow-sm">
           Copied link for #{copiedId}
         </div>
       )}
