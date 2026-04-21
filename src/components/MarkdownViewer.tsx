@@ -44,7 +44,7 @@ function HeadingWithAnchor({
           type="button"
           onClick={() => onCopy(id)}
           aria-label="Copy heading link"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-outline-variant/20 bg-surface-container-high text-outline opacity-0 transition hover:text-primary group-hover:opacity-100"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-outline-variant/20 bg-surface-container-high text-primary opacity-0 transition hover:text-primary group-hover:opacity-100"
         >
           <span className="material-symbols-outlined text-base">link</span>
         </button>

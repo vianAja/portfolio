@@ -44,7 +44,7 @@ export default async function BlogArticlePage({
           <div className="grid grid-cols-1 lg:grid-cols-[280px_minmax(0,1fr)] gap-8 xl:gap-12 items-start">
             <aside className="hidden lg:block sticky top-28 rounded-xl border border-outline-variant/20 bg-surface-container-low/40 p-5">
               <div className="pb-4 mb-4 border-b border-outline-variant/15">
-                <p className="text-outline font-label text-[0.6875rem] uppercase tracking-[0.12em]">On this page</p>
+                <p className="text-primary font-label text-[0.6875rem] uppercase tracking-[0.12em]">On this page</p>
               </div>
               {tocItems.length > 0 ? (
                 <nav aria-label="Table of contents">
@@ -53,12 +53,12 @@ export default async function BlogArticlePage({
                       <li key={heading.id}>
                         <a
                           href={`#${heading.id}`}
-                          className={`block rounded-md px-3 py-2 text-sm text-outline hover:text-primary hover:bg-surface-container-high transition ${
+                          className={`block rounded-md px-3 py-2 text-sm text-primary hover:text-primary hover:bg-surface-container-high transition ${
                             heading.level === 1
                               ? "font-semibold"
                               : heading.level === 2
                                 ? "pl-4"
-                                : "pl-7 text-on-surface/70"
+                                : "pl-7 text-primary/80"
                           }`}
                         >
                           {heading.text}
@@ -77,15 +77,15 @@ export default async function BlogArticlePage({
                 <div className="flex flex-wrap items-center gap-3 mb-5">
                   <Link
                     href="/blog"
-                    className="flex items-center gap-1 text-outline hover:text-primary transition-colors font-label text-[0.6875rem] uppercase tracking-[0.1em]"
+                    className="flex items-center gap-1 text-primary hover:text-primary transition-colors font-label text-[0.6875rem] uppercase tracking-[0.1em]"
                   >
                     <span className="material-symbols-outlined text-sm">arrow_back</span>
                     All Posts
                   </Link>
-                  <span className="text-outline/40">·</span>
-                  <span className="text-outline font-label text-[0.6875rem] uppercase tracking-[0.1em]">{meta.readTime}</span>
-                  <span className="text-outline/40">·</span>
-                  <span className="text-outline font-label text-[0.6875rem] uppercase tracking-[0.1em]">{meta.date}</span>
+                  <span className="text-primary/40">·</span>
+                  <span className="text-primary font-label text-[0.6875rem] uppercase tracking-[0.1em]">{meta.readTime}</span>
+                  <span className="text-primary/40">·</span>
+                  <span className="text-primary font-label text-[0.6875rem] uppercase tracking-[0.1em]">{meta.date}</span>
                 </div>
                 <h1 className="font-headline text-3xl md:text-5xl font-bold tracking-[-0.03em] text-white leading-tight mb-5">
                   {meta.title}
