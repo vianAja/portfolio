@@ -23,7 +23,7 @@ export default function ProjectsPage() {
               <span className="font-label text-[0.6875rem] uppercase tracking-[0.2em] text-primary mb-4 block">
                 Selected Work
               </span>
-              <h1 className="font-headline text-6xl md:text-8xl font-bold tracking-[-0.04em] leading-none text-white">
+              <h1 className="font-headline text-6xl md:text-8xl font-bold tracking-[-0.04em] leading-none text-outline-variant">
                 ALL<br />
                 <span className="text-primary">PROJECTS</span>
               </h1>
