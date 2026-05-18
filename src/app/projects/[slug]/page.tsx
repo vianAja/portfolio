@@ -62,7 +62,7 @@ export default async function ProjectDetailPage({
                   </span>
                 ))}
               </div>
-              <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-[-0.04em] text-white leading-tight mb-6">
+              <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-[-0.04em] text-on-surface leading-tight mb-6">
                 {meta.title}
               </h1>
               <p className="text-on-surface-variant text-xl leading-relaxed max-w-2xl">

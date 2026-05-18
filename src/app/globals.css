@@ -59,6 +59,17 @@ body {
   font-family: var(--font-body);
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 ::selection {
   background-color: color-mix(in srgb, var(--color-primary-container) 45%, transparent);
   color: var(--color-on-primary-container);
@@ -74,6 +85,9 @@ body {
   padding: 0.15em 0.4em;
   border-radius: 0.25rem;
   font-weight: 500;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .prose :not(pre) > code::before,
@@ -88,6 +102,12 @@ body {
 
 .prose ul ul {
   list-style-type: circle;
+}
+
+.prose table code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .glass-surface {

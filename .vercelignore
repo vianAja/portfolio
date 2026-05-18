@@ -1,0 +1,8 @@
+.git
+.next
+.open-next
+.tmp
+node_modules
+screen.png
+code.html
+*.log

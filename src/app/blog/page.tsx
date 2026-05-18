@@ -2,6 +2,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { getAllBlogPosts } from "@/lib/blog";
 import Link from "next/link";
+import CategoryDropdown from "@/components/CategoryDropdown";
 
 export const metadata = {
   title: "Blog | NAJWAN",
@@ -87,28 +88,11 @@ export default async function BlogPage({
 
           <div className="bg-surface-container-lowest border border-outline-variant/25 rounded-xl p-4 md:p-5">
             <p className="font-label text-[0.72rem] uppercase tracking-[0.12em] text-on-surface-variant mb-3">Categories</p>
-            <div className="flex flex-wrap gap-2">
-              {categories.map(({ label, count, value }) => {
-                const isActive = (selectedCategory || "") === value;
-                const href =
-                  value.length > 0
-                    ? `/blog?category=${encodeURIComponent(value)}${search ? `&search=${encodeURIComponent(search)}` : ""}`
-                    : `/blog${search ? `?search=${encodeURIComponent(search)}` : ""}`;
-                return (
-                  <Link
-                    key={label}
-                    href={href}
-                    className={`px-3 py-1.5 rounded-full text-xs font-label uppercase tracking-[0.08em] transition-colors ${
-                      isActive
-                        ? "bg-primary text-on-primary"
-                        : "bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high"
-                    }`}
-                  >
-                    {label} ({count})
-                  </Link>
-                );
-              })}
-            </div>
+            <CategoryDropdown
+              categories={categories}
+              selectedCategory={selectedCategory}
+              currentSearch={search}
+            />
           </div>
         </section>
 
@@ -121,9 +105,9 @@ export default async function BlogPage({
             {paginatedPosts.map((post) => (
               <article
                 key={post.id}
-                className="group relative flex flex-col md:flex-row gap-6 items-start bg-surface-container-lowest p-6 md:p-8 rounded-xl hover:bg-tertiary-fixed/45 transition-colors border border-outline-variant/25"
+                className="group relative grid grid-cols-1 gap-6 bg-surface-container-lowest p-6 md:grid-cols-[minmax(0,1fr)_220px] md:items-stretch md:gap-8 md:p-8 rounded-xl hover:bg-tertiary-fixed/45 transition-colors border border-outline-variant/25"
               >
-                <div className="flex-grow order-2 md:order-1">
+                <div className="order-2 md:order-1 min-w-0">
                   <div className="flex items-center gap-3 text-xs font-label text-on-surface-variant mb-3 tracking-[0.09em] uppercase">
                     <span>Najwan Octavian Gerrard</span>
                     <span className="w-1 h-1 bg-outline-variant rounded-full" />
@@ -160,13 +144,13 @@ export default async function BlogPage({
                   </Link>
                 </div>
 
-                <div className="order-1 md:order-2 shrink-0">
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-lg bg-surface-container-low flex items-center justify-center border border-outline-variant/20 overflow-hidden">
+                <div className="order-1 md:order-2">
+                  <div className="h-44 w-full rounded-xl bg-surface-container-low flex items-center justify-center border border-outline-variant/20 overflow-hidden md:h-full md:min-h-[180px]">
                     {post.image ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                     ) : (
-                      <span className="material-symbols-outlined text-4xl text-primary/60">article</span>
+                      <span className="material-symbols-outlined text-5xl text-primary/60">article</span>
                     )}
                   </div>
                 </div>

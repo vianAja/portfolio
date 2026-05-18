@@ -96,7 +96,7 @@ export default function ProjectsPage() {
                         ))}
                       </div>
                       <Link href={`/projects/${project.slug}`}>
-                        <h2 className="font-headline text-2xl font-bold text-white mb-2 hover:text-primary transition-colors">
+                        <h2 className="font-headline text-2xl font-bold text-on-surface mb-2 hover:text-primary transition-colors">
                           {project.title}
                         </h2>
                       </Link>
@@ -130,7 +130,7 @@ export default function ProjectsPage() {
                         )}
                       </div>
                     </div>
-                    <span className="material-symbols-outlined text-3xl text-outline-variant group-hover:text-primary transition-colors mt-1">
+                    <span className="material-symbols-outlined text-3xl text-outline group-hover:text-primary transition-colors mt-1">
                       north_east
                     </span>
                   </div>

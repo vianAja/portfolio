@@ -37,27 +37,26 @@ export default function CategoryDropdown({
     <div className="relative shrink-0 w-full sm:w-auto" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between sm:justify-start gap-4 bg-surface-container-highest text-white w-full px-6 py-3 rounded-lg border border-outline-variant/20 hover:border-primary transition-all font-body text-sm shadow-sm"
+        className="flex items-center justify-between gap-4 bg-surface-container-low text-on-surface w-full px-4 py-3 rounded-xl border border-outline-variant/25 hover:border-primary transition-all font-body text-sm shadow-sm"
       >
-        <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-outline-variant text-[1.125rem]">filter_list</span>
-            <span className="font-bold">{activeLabel}</span>
+        <div className="flex items-center gap-3 min-w-0">
+            <span className="font-medium truncate">{activeLabel}</span>
         </div>
-        <span className={`material-symbols-outlined text-outline-variant transition-transform ${isOpen ? "rotate-180" : ""}`}>
-          expand_more
+        <span className={`material-symbols-outlined text-outline transition-transform ${isOpen ? "rotate-180" : ""}`}>
+          keyboard_arrow_down
         </span>
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 sm:right-auto sm:left-0 mt-2 w-full sm:w-64 bg-surface-container-high border border-outline-variant/20 rounded-xl shadow-2xl z-50 overflow-hidden flex flex-col py-2">
+        <div className="absolute top-full right-0 sm:right-auto sm:left-0 mt-2 w-full sm:w-72 bg-surface-container-lowest border border-outline-variant/25 rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col py-2">
           {categories.map(({ label, count, value }) => (
             <Link
               key={label}
               onClick={() => setIsOpen(false)}
-              className={`group flex items-center justify-between px-6 py-3 hover:bg-surface-container-highest transition-colors ${
+              className={`group flex items-center justify-between gap-3 px-4 py-3 hover:bg-surface-container-low transition-colors ${
                 (selectedCategory || "") === value
                   ? "text-primary bg-primary/5"
-                  : "text-on-surface hover:text-white"
+                  : "text-on-surface"
               }`}
               href={
                 value
@@ -65,10 +64,14 @@ export default function CategoryDropdown({
                   : `/blog${currentSearch ? "?search=" + encodeURIComponent(currentSearch) : ""}`
               }
             >
-              <span className="font-body text-sm font-medium">{label}</span>
-              <span className="font-label text-[0.65rem] bg-surface-container px-2 py-0.5 rounded text-on-surface-variant group-hover:bg-primary group-hover:text-on-primary-container transition-colors">
-                {String(count).padStart(2, "0")}
-              </span>
+              <div className="min-w-0">
+                <span className="font-body text-sm font-medium truncate">
+                  {label} <span className="text-on-surface-variant">({count})</span>
+                </span>
+              </div>
+              {(selectedCategory || "") === value ? (
+                <span className="material-symbols-outlined text-base text-primary">check</span>
+              ) : null}
             </Link>
           ))}
         </div>

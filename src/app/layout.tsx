@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   title: "Portfolio Najwan",
   description:
     "Passionate about Cloud Computing, DevOps, and Machine Learning. Engineering scalable digital futures through high-performance architecture.",
+  icons: {
+    icon: "/logo-portfolio.png",
+    shortcut: "/logo-portfolio.png",
+    apple: "/logo-portfolio.png",
+  },
 };
 
 export default function RootLayout({

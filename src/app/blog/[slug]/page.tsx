@@ -1,6 +1,7 @@
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import MarkdownViewer from "@/components/MarkdownViewer";
+import BlogPostPager from "@/components/BlogPostPager";
 import { getBlogPostById, getAllBlogPosts } from "@/lib/blog";
 import { extractHeadings } from "@/lib/markdownHeadings";
 import Link from "next/link";
@@ -35,6 +36,10 @@ export default async function BlogArticlePage({
 
   const { meta, content } = post;
   const tocItems = extractHeadings(content);
+  const allPosts = getAllBlogPosts();
+  const currentIndex = allPosts.findIndex((item) => item.id === slug);
+  const newerPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+  const olderPost = currentIndex >= 0 && currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
   return (
     <>
@@ -67,6 +72,9 @@ export default async function BlogArticlePage({
             ) : (
               <p className="text-on-surface-variant text-sm">No headings found in this post.</p>
             )}
+            <div className="mt-6 border-t border-outline-variant/25 pt-5">
+              <BlogPostPager newerPost={newerPost} olderPost={olderPost} />
+            </div>
           </aside>
 
           <div className="space-y-7 min-w-0">
@@ -103,6 +111,10 @@ export default async function BlogArticlePage({
 
             <div className="bg-surface-container-lowest rounded-xl p-6 md:p-8 border border-outline-variant/20">
               <MarkdownViewer content={content} />
+            </div>
+
+            <div className="lg:hidden">
+              <BlogPostPager newerPost={newerPost} olderPost={olderPost} />
             </div>
           </div>
         </article>
