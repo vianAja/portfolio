@@ -12,7 +12,7 @@ outline:
   - "AWS Cloud Service: RDS"
   - "AWS Cloud Service: ALB"
 certificateTitle: "LKS Cloud Computing District 2025 - 2nd Place"
-certificateImage: "/assets/sertif/lks-cloud-computing/Sertifikat LKS Cloud Computing 2025 Kab Kendal Juara 2.png"
+certificateImage: "/assets/sertif/lks-cloud-computing/Sertifikat LKS Cloud Computing 2025 Kab Kendal Juara 2.webp"
 certificateFile: "/assets/sertif/lks-cloud-computing/Sertifikat LKS Cloud Computing 2025 Kab Kendal Juara 2.pdf"
 ---
 Won 2nd place in the district-level LKS Cloud Computing competition in 2025, focused on service integration and reliable AWS deployment patterns.

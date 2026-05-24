@@ -1,82 +1,66 @@
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 import { getAllProjects } from "@/lib/projects";
 import { getAllBlogPosts } from "@/lib/blog";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   const featuredProjects = getAllProjects().slice(0, 2);
-  const recentPosts = getAllBlogPosts().slice(0, 3);
+  const allBlogPosts = getAllBlogPosts();
+  const recentPosts = allBlogPosts.slice(0, 3);
+  const profileStats = [
+    { value: "2+", label: "tahun belajar cloud" },
+    { value: "10+", label: "sertifikasi teknikal" },
+    { value: `${allBlogPosts.length}+`, label: "blog post teknikal" },
+  ];
   const technicalSkills = [
     {
       category: "Cloud",
       icon: "cloud",
-      description: "Platform and infrastructure orchestration across private and public cloud systems.",
-      items: ["OpenStack", "Kubernetes", "Ceph", "AWS", "Traefik"],
+      items: ["OpenStack", "Kubernetes", "OpenShift", "Ceph", "AWS", "Traefik"],
     },
     {
-      category: "Automation",
+      category: "Automation & CI/CD",
       icon: "settings_suggest",
-      description: "Provisioning, deployment, and release automation for repeatable delivery pipelines.",
-      items: ["Ansible", "Terraform", "Jenkins", "AWS CloudFormation", "GitLab CI/CD"],
+      items: ["Ansible", "Terraform", "Jenkins", "CloudFormation", "GitLab CI/CD"],
     },
     {
-      category: "Containerization",
-      icon: "deployed_code",
-      description: "Lightweight packaging for portable workloads and reliable application delivery.",
-      items: ["Docker"],
-    },
-    {
-      category: "Monitoring",
+      category: "Monitoring & Security",
       icon: "monitoring",
-      description: "Observability stacks to track system health, logs, and performance signals.",
-      items: ["ELK Stack", "Grafana", "Prometheus"],
+      items: ["ELK Stack", "Grafana", "Prometheus", "Wazuh"],
     },
     {
       category: "Networking",
       icon: "lan",
-      description: "Core network fundamentals for connectivity, segmentation, and secure traffic flow.",
       items: ["Routing", "Switching", "Subnetting", "Firewalls"],
-    },
-    {
-      category: "Scripting",
-      icon: "terminal",
-      description: "Shell-first tooling for automation, configuration, and operational scripting.",
-      items: ["Linux", "Bash", "YAML"],
     },
     {
       category: "Database",
       icon: "database",
-      description: "Relational and NoSQL storage systems for applications, analytics, and cloud services.",
-      items: ["MySQL", "PostgreSQL", "MongoDB", "AWS RDS", "AWS DynamoDB"],
+      items: ["MySQL", "PostgreSQL", "MongoDB", "AWS RDS", "DynamoDB", "Oracle DB"],
     },
     {
-      category: "Programming",
-      icon: "code",
-      description: "General-purpose programming for automation, data processing, and solution building.",
-      items: ["Python"],
-    },
-    {
-      category: "Internet of Things (IoT)",
-      icon: "memory",
-      description: "Device-level prototyping with sensors and embedded development workflows.",
-      items: ["Arduino", "Sensor"],
+      category: "Dev & Scripting",
+      icon: "terminal",
+      items: ["Python", "Bash", "Linux", "YAML", "Docker", "Arduino"],
     },
     {
       category: "Data Science & Analytics",
       icon: "query_stats",
-      description: "Practical analysis workflows from EDA and statistics to entry-level machine learning.",
       items: [
         "Pandas",
         "NumPy",
         "Matplotlib",
         "Seaborn",
-        "SQL (SELECT, GROUP BY, Functions)",
-        "Statistics for Data Science",
-        "Exploratory Data Analysis (EDA)",
+        "SQL",
+        "EDA",
         "Machine Learning",
+        "Deep Learning",
+        "Regression",
       ],
+      centered: true,
     },
   ];
 
@@ -84,16 +68,18 @@ export default function Home() {
     <>
       <NavBar active="Home" />
 
-      <main className="pt-28 pb-20 px-6 md:px-12 lg:px-20 max-w-7xl mx-auto space-y-28">
-        <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-6">
+      <main className="pt-24 pb-20 px-6 md:px-12 lg:px-20 max-w-7xl mx-auto space-y-20">
+        <section className="relative flex items-center overflow-hidden pt-2 pb-2 md:min-h-[56vh]">
           <div className="relative z-10 grid w-full grid-cols-1 items-center gap-10 md:grid-cols-12">
             <ScrollReveal className="md:col-span-4 relative flex justify-center md:justify-start">
               <div className="relative h-72 w-72 overflow-hidden rounded-xl bg-surface-container-high shadow-lg transition-all duration-500 will-change-transform hover:scale-[1.03] hover:border hover:border-primary/30 hover:shadow-2xl md:h-96 md:w-96">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  className="h-full w-full object-cover"
+                <Image
+                  className="object-cover"
                   alt="Najwan Octavian portrait"
                   src="/homepage-furina.webp"
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 24rem, 18rem"
                 />
                 <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
               </div>
@@ -101,7 +87,7 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal className="md:col-span-8">
-              <div className="space-y-8">
+              <div className="space-y-8 text-center md:text-left">
                 <div className="space-y-4">
                   <p className="font-label text-primary text-xs md:text-sm font-semibold tracking-[0.16em] uppercase">
                     Portfolio
@@ -111,11 +97,11 @@ export default function Home() {
                   </h1>
                 </div>
 
-                <p className="font-body text-lg md:text-2xl text-on-surface-variant font-light leading-relaxed max-w-2xl">
+                <p className="mx-auto max-w-2xl font-body text-lg md:mx-0 md:text-2xl text-on-surface-variant font-light leading-relaxed">
                   Building scalable cloud systems and elegant interfaces with a quiet, editorial approach.
                 </p>
 
-                <div className="flex flex-wrap items-center gap-4 pt-2">
+                <div className="flex flex-wrap items-center justify-center gap-4 pt-2 md:justify-start">
                   <Link
                     href="/cv"
                     className="bg-primary text-on-primary px-7 py-3.5 rounded-md font-label text-sm font-semibold uppercase tracking-[0.08em]"
@@ -134,43 +120,83 @@ export default function Home() {
           </div>
         </section>
 
+        <ScrollReveal>
+          <section
+            id="about"
+            className="space-y-8"
+          >
+            <div className="max-w-4xl space-y-4">
+              <p className="font-label text-primary text-xs font-semibold uppercase tracking-[0.16em]">
+                About
+              </p>
+              <h2 className="font-headline text-3xl font-bold tracking-tight text-on-surface md:text-4xl">
+                Siapa Najwan?
+              </h2>
+              <p className="font-body text-base leading-relaxed text-on-surface-variant md:text-lg">
+                Najwan Octavian Gerrard adalah fresh graduate SMK Negeri 4 Kendal tahun 2025 yang berfokus pada Cloud Infrastructure dan DevOps. Sejak Oktober 2025, Najwan bekerja sebagai Jr. Training Team di PT Boer Technology, membantu pembelajaran teknis seputar cloud, automation, dan delivery infrastructure.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {profileStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-lg border border-outline-variant/30 bg-surface-container-low px-5 py-4"
+                >
+                  <p className="font-headline text-3xl font-bold text-primary">{stat.value}</p>
+                  <p className="mt-1 font-label text-xs uppercase tracking-[0.08em] text-on-surface-variant">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </ScrollReveal>
+
         <section
-          className="rounded-[2rem] border border-[#223047] bg-[#111827] px-6 py-10 shadow-[0_22px_48px_rgba(17,24,39,0.12)] md:px-8 md:py-12"
+          className="space-y-6"
           id="skills"
         >
-          <div className="mb-10 max-w-3xl space-y-4">
-            <h2 className="font-headline text-3xl md:text-5xl font-bold tracking-tight text-white">
+          <div className="space-y-2 text-center md:text-left">
+            <p className="font-label text-[0.6875rem] uppercase tracking-[0.13em] text-primary/85">
+              Technical Profile
+            </p>
+            <h2 className="mx-auto max-w-3xl border-b border-primary/60 pb-4 font-headline text-3xl md:mx-0 md:text-4xl font-bold tracking-tight text-on-surface">
               Technical Skills
             </h2>
-            <p className="text-base leading-8 text-slate-300 md:text-lg">
-              A compact view of the cloud, infrastructure, automation, data, and scripting tools I
-              use most often in practical work.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="overflow-hidden rounded-2xl border border-outline-variant/30 bg-outline-variant/30 shadow-[0_8px_24px_rgba(26,28,28,0.04)]">
+            <div className="grid grid-cols-1 gap-px bg-outline-variant/30 md:grid-cols-2 xl:grid-cols-3">
             {technicalSkills.map((skill) => (
               <article
                 key={skill.category}
-                className="rounded-[1.6rem] border border-[#2b3952] bg-[#162133] p-6 shadow-[0_12px_32px_rgba(8,15,28,0.22)] transition duration-200 hover:-translate-y-0.5 hover:border-[#37517a]"
+                className={`bg-surface-container-lowest px-5 py-5 text-center transition hover:bg-surface-container-low md:text-left ${
+                  skill.centered ? "xl:col-span-3 xl:flex xl:flex-col xl:items-center" : ""
+                }`}
               >
-                <div className="mb-5 flex items-start gap-4">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/12 text-primary">
-                    <span className="material-symbols-outlined text-[1.45rem]">{skill.icon}</span>
+                <div className="mb-4 flex items-center justify-center gap-2 md:justify-start">
+                  <span className="material-symbols-outlined text-base text-primary">
+                    {skill.icon}
                   </span>
-                  <div className="space-y-2">
-                    <h3 className="font-headline text-xl font-semibold leading-tight tracking-tight text-white">
-                      {skill.category}
-                    </h3>
-                    <p className="text-sm leading-7 text-slate-300">{skill.description}</p>
-                  </div>
+                  <h3 className="font-headline text-base font-semibold tracking-tight text-on-surface">
+                    {skill.category}
+                  </h3>
                 </div>
 
-                <ul className="flex flex-wrap gap-2.5">
+                <ul className={`flex flex-wrap justify-center gap-2 md:justify-start ${skill.centered ? "xl:justify-center" : ""}`}>
                   {skill.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-full border border-[#2c3a50] bg-[#1d2940] px-3.5 py-1.5 text-xs font-medium leading-5 text-slate-200 md:text-[0.82rem]"
+                      className={`rounded-md border px-2.5 py-1 text-[0.68rem] font-label tracking-[0.02em] ${
+                        item === "OpenShift" ||
+                        item === "Wazuh" ||
+                        item === "Oracle DB" ||
+                        item === "Deep Learning" ||
+                        item === "Regression"
+                          ? "border-secondary-container/80 bg-secondary-container/20 text-secondary"
+                          : "border-outline-variant/80 bg-surface-container-lowest text-primary"
+                      }`}
                     >
                       {item}
                     </li>
@@ -178,6 +204,7 @@ export default function Home() {
                 </ul>
               </article>
             ))}
+            </div>
           </div>
         </section>
 

@@ -18,15 +18,15 @@ const certMappings: Record<string, string> = {
   "lks-2025": "/assets/sertif/lks-cloud-computing/Sertifikat LKS Cloud Computing 2025 Kab Kendal Juara 2.pdf",
   "lks-2024": "/assets/sertif/lks-cloud-computing/Sertifikat Peserta LKS Cloud Computing Provinsi 2024.pdf",
   // Adinusa
-  "adi-linux": "/assets/sertif/Adinusa/Certificate Fundamental Linux Adinusa.png",
-  "adi-prom": "/assets/sertif/Adinusa/Certificate Prometheus Adinusa.png",
-  "adi-elk": "/assets/sertif/Adinusa/Certificate ELK Stack Adinusa.png",
-  "adi-git": "/assets/sertif/Adinusa/Certificate GitLab Adinusa.png",
-  "adi-kube": "/assets/sertif/Adinusa/Certificate Kubernetes Adinusa.png",
-  "adi-open": "/assets/sertif/Adinusa/Certificate OpenStack Adinusa.png",
-  "adi-ceph": "/assets/sertif/Adinusa/Certificate Ceph Adinusa.png",
-  "adi-ans": "/assets/sertif/Adinusa/Certificate Automation with Ansible Adinusa.png",
-  "adi-dock": "/assets/sertif/Adinusa/Certificate Docker Fundamental Adinusa.png",
+  "adi-linux": "/assets/sertif/Adinusa/Certificate Fundamental Linux Adinusa.webp",
+  "adi-prom": "/assets/sertif/Adinusa/Certificate Prometheus Adinusa.webp",
+  "adi-elk": "/assets/sertif/Adinusa/Certificate ELK Stack Adinusa.webp",
+  "adi-git": "/assets/sertif/Adinusa/Certificate GitLab Adinusa.webp",
+  "adi-kube": "/assets/sertif/Adinusa/Certificate Kubernetes Adinusa.webp",
+  "adi-open": "/assets/sertif/Adinusa/Certificate OpenStack Adinusa.webp",
+  "adi-ceph": "/assets/sertif/Adinusa/Certificate Ceph Adinusa.webp",
+  "adi-ans": "/assets/sertif/Adinusa/Certificate Automation with Ansible Adinusa.webp",
+  "adi-dock": "/assets/sertif/Adinusa/Certificate Docker Fundamental Adinusa.webp",
   // DqLabs
   "dq-regresi": "/assets/sertif/DqLabs/Certificate Mengenal Model Regresi Linear Pada Python.pdf",
   "dq-ml": "/assets/sertif/DqLabs/Certificate Pengantar Machine Learning dengan Python.pdf",
@@ -51,6 +51,7 @@ export async function GET(request: Request, context: any) {
     let contentType = "application/octet-stream";
     if (ext === ".pdf") contentType = "application/pdf";
     if (ext === ".png") contentType = "image/png";
+    if (ext === ".webp") contentType = "image/webp";
     if (ext === ".jpg" || ext === ".jpeg") contentType = "image/jpeg";
 
     return new NextResponse(fileBuffer, {

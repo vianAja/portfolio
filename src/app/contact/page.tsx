@@ -25,67 +25,37 @@ export default function ContactPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
-            {/* Form Section */}
+            {/* Direct Action Section */}
             <div className="md:col-span-7">
-              <h3 className="font-headline text-2xl font-bold text-on-surface mb-8">Send a Message</h3>
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="sr-only">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="w-full bg-surface-container-high border border-outline-variant/30 rounded-xl px-6 py-4 text-on-surface placeholder:text-on-surface-variant/70 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all font-body"
-                    placeholder="Your firstname"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="sr-only">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    className="w-full bg-surface-container-high border border-outline-variant/30 rounded-xl px-6 py-4 text-on-surface placeholder:text-on-surface-variant/70 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all font-body"
-                    placeholder="Your email address"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="sr-only">Subject</label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    className="w-full bg-surface-container-high border border-outline-variant/30 rounded-xl px-6 py-4 text-on-surface placeholder:text-on-surface-variant/70 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all font-body"
-                    placeholder="Your subject of this message"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="sr-only">Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={6}
-                    className="w-full bg-surface-container-high border border-outline-variant/30 rounded-xl px-6 py-4 text-on-surface placeholder:text-on-surface-variant/70 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all font-body resize-y"
-                    placeholder="Write us something"
-                    required
-                  ></textarea>
-                </div>
-
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    className="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-8 py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_20px_rgba(125,236,239,0.3)] transition-all flex items-center justify-center w-full md:w-auto"
+              <div className="h-full rounded-2xl border border-outline-variant/20 bg-surface-container-low p-8 md:p-10 flex flex-col justify-center text-center md:text-left">
+                <p className="font-label text-[0.6875rem] uppercase tracking-[0.16em] text-primary mb-3">
+                  Direct Contact
+                </p>
+                <h3 className="font-headline text-3xl font-bold text-on-surface mb-4">
+                  Let&apos;s talk through the fastest channel.
+                </h3>
+                <p className="font-body text-on-surface-variant leading-relaxed mb-8 max-w-xl mx-auto md:mx-0">
+                  For recruitment, collaboration, or technical discussions, WhatsApp and email are the quickest ways to reach me.
+                </p>
+                <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4 md:justify-start">
+                  <a
+                    href="https://wa.me/62895414361074"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 font-label text-sm font-semibold uppercase tracking-[0.08em] text-on-primary transition-all hover:shadow-[0_0_20px_rgba(125,236,239,0.3)]"
                   >
-                    Send Message
-                  </button>
+                    <span className="material-symbols-outlined text-lg">chat</span>
+                    Chat via WhatsApp
+                  </a>
+                  <a
+                    href="mailto:najwanoctavian@gmail.com"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-outline-variant/30 bg-surface-container-high px-6 py-4 font-label text-sm font-semibold uppercase tracking-[0.08em] text-primary transition-colors hover:bg-surface-container-highest"
+                  >
+                    <span className="material-symbols-outlined text-lg">mail</span>
+                    Kirim Email
+                  </a>
                 </div>
-              </form>
+              </div>
             </div>
 
             {/* Contact Info Section */}

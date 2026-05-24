@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Portfolio Najwan",
+  title: "Najwan Octavian Gerrard — Cloud & DevOps Engineer",
   description:
-    "Passionate about Cloud Computing, DevOps, and Machine Learning. Engineering scalable digital futures through high-performance architecture.",
+    "Jr. Cloud Infrastructure & DevOps Engineer. Spesialisasi OpenStack, Kubernetes, Ansible, dan AWS. Saat ini di PT Boer Technology. Lihat CV dan proyek saya.",
   icons: {
-    icon: "/logo-portfolio.png",
-    shortcut: "/logo-portfolio.png",
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
     apple: "/logo-portfolio.png",
   },
 };

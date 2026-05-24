@@ -2,6 +2,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { getAllBlogPosts } from "@/lib/blog";
 import Link from "next/link";
+import Image from "next/image";
 import CategoryDropdown from "@/components/CategoryDropdown";
 
 export const metadata = {
@@ -145,10 +146,15 @@ export default async function BlogPage({
                 </div>
 
                 <div className="order-1 md:order-2">
-                  <div className="h-44 w-full rounded-xl bg-surface-container-low flex items-center justify-center border border-outline-variant/20 overflow-hidden md:h-full md:min-h-[180px]">
+                  <div className="relative h-44 w-full rounded-xl bg-surface-container-low flex items-center justify-center border border-outline-variant/20 overflow-hidden md:h-full md:min-h-[180px]">
                     {post.image ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(min-width: 768px) 220px, 100vw"
+                      />
                     ) : (
                       <span className="material-symbols-outlined text-5xl text-primary/60">article</span>
                     )}

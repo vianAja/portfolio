@@ -7,7 +7,7 @@ interface Certificate {
   title: string;
   issuer: string;
   year: string;
-  image: string; // The PNG thumbnail to display
+  image: string; // The certificate thumbnail to display
   pdfFile: string; // The obfuscated API URL to download/open the original
   link: string; // External verification
 }
@@ -43,7 +43,7 @@ const certificates: Certificate[] = [
     title: "Introduction to Linux LFS101",
     issuer: "Linux Foundation",
     year: "2024",
-    image: "/assets/sertif/linux-foundations/LFS101.png",
+    image: "/assets/sertif/linux-foundations/LFS101.webp",
     pdfFile: "/api/cert/lf-lfs101",
     link: "https://www.credly.com/badges/481cc9c8-1400-4243-aa12-626073039df9/public_url",
   },
@@ -51,7 +51,7 @@ const certificates: Certificate[] = [
     title: "Secure AI/ML-Driven Software Development (LFEL1012)",
     issuer: "Linux Foundation",
     year: "2024",
-    image: "/assets/sertif/linux-foundations/LFEL1012.png",
+    image: "/assets/sertif/linux-foundations/LFEL1012.webp",
     pdfFile: "/api/cert/lf-lfel1012",
     link: "https://www.credly.com/badges/e12b0066-1408-4ebd-9399-0fa815cc8474/public_url",
   },
@@ -95,7 +95,7 @@ const certificates: Certificate[] = [
     title: cert.title,
     issuer: "Adinusa",
     year: "2024",
-    image: `/assets/sertif/Adinusa/${cert.img}.png`,
+    image: `/assets/sertif/Adinusa/${cert.img}.webp`,
     pdfFile: `/api/cert/${cert.apiId}`,
     link: `https://adinusa.id/course/publisher/show/${cert.id}`,
   })),
@@ -108,7 +108,7 @@ const certificates: Certificate[] = [
     title: cert.title,
     issuer: "DqLab",
     year: "2024",
-    image: `/assets/sertif/DqLabs/${cert.img}.png`,
+    image: `/assets/sertif/DqLabs/${cert.img}.webp`,
     pdfFile: `/api/cert/${cert.apiId}`,
     link: `https://academy.dqlab.id/Certificate_check/result/${cert.p}#mycertificate`,
   })),
@@ -117,7 +117,7 @@ const certificates: Certificate[] = [
     title: "Cloud Computing – Juara 2 Kabupaten",
     issuer: "LKS Provinsi Jawa Tengah",
     year: "2025",
-    image: "/assets/sertif/lks-cloud-computing/Sertifikat LKS Cloud Computing 2025 Kab Kendal Juara 2.png",
+    image: "/assets/sertif/lks-cloud-computing/Sertifikat LKS Cloud Computing 2025 Kab Kendal Juara 2.webp",
     pdfFile: "/api/cert/lks-2025",
     link: "#",
   },
@@ -125,7 +125,7 @@ const certificates: Certificate[] = [
     title: "Cloud Computing – Peserta Provinsi",
     issuer: "LKS Provinsi Jawa Tengah",
     year: "2024",
-    image: "/assets/sertif/lks-cloud-computing/Sertifikat Peserta LKS Cloud Computing Provinsi 2024.png",
+    image: "/assets/sertif/lks-cloud-computing/Sertifikat Peserta LKS Cloud Computing Provinsi 2024.webp",
     pdfFile: "/api/cert/lks-2024",
     link: "#",
   },

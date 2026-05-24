@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Skills — Najwan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Manrope:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary:      #557571;
+    --primary-dark: #2a3a38;
+    --primary-muted:#d8e4e3;
+    --primary-tint: #edf4f3;
+    --warm:         #9a5a42;
+    --warm-bg:      #fdf6f2;
+    --warm-border:  #e8c4b0;
+    --neutral:      #F4F4F4;
+    --border:       #c8d9d8;
+    --white:        #ffffff;
+  }
+
+  body {
+    background: var(--neutral);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .section {
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .eyebrow {
+    font-size: 10.5px;
+    letter-spacing: .13em;
+    color: var(--primary);
+    text-transform: uppercase;
+    opacity: .85;
+    margin-bottom: .4rem;
+  }
+
+  .section-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-dark);
+    letter-spacing: -.01em;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1.5px solid var(--primary);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--primary-muted);
+    border: 1px solid var(--primary-muted);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .card {
+    background: var(--neutral);
+    padding: .95rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    transition: background .12s;
+  }
+
+  .card:hover { background: var(--primary-tint); }
+
+  /* Last card: full width, content centered */
+  .card.centered {
+    grid-column: 1 / -1;
+    align-items: center;
+  }
+
+  .card.centered .tags {
+    justify-content: center;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .card-top i {
+    font-size: 14px;
+    color: var(--primary);
+  }
+
+  .card-top span {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--primary-dark);
+    letter-spacing: .01em;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 10.5px;
+    padding: 2px 8px;
+    background: var(--white);
+    color: var(--primary);
+    border-radius: 5px;
+    border: 1px solid var(--border);
+  }
+
+  .tag-warm {
+    background: var(--warm-bg);
+    color: var(--warm);
+    border-color: var(--warm-border);
+  }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 400px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<section class="section">
+  <p class="eyebrow">Technical profile</p>
+  <h2 class="section-title">Technical Skills</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-top">
+        <i class="ti ti-cloud" aria-hidden="true"></i>
+        <span>Cloud</span>
+      </div>
+      <div class="tags">
+        <span class="tag">OpenStack</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag tag-warm">OpenShift</span>
+        <span class="tag">Ceph</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Traefik</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <i class="ti ti-settings-automation" aria-hidden="true"></i>
+        <span>Automation & CI/CD</span>
+      </div>
+      <div class="tags">
+        <span class="tag">Ansible</span>
+        <span class="tag">Terraform</span>
+        <span class="tag">Jenkins</span>
+        <span class="tag">CloudFormation</span>
+        <span class="tag">GitLab CI/CD</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <i class="ti ti-activity" aria-hidden="true"></i>
+        <span>Monitoring & Security</span>
+      </div>
+      <div class="tags">
+        <span class="tag">ELK Stack</span>
+        <span class="tag">Grafana</span>
+        <span class="tag">Prometheus</span>
+        <span class="tag tag-warm">Wazuh</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <i class="ti ti-network" aria-hidden="true"></i>
+        <span>Networking</span>
+      </div>
+      <div class="tags">
+        <span class="tag">Routing</span>
+        <span class="tag">Switching</span>
+        <span class="tag">Subnetting</span>
+        <span class="tag">Firewalls</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <i class="ti ti-database" aria-hidden="true"></i>
+        <span>Database</span>
+      </div>
+      <div class="tags">
+        <span class="tag">MySQL</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">AWS RDS</span>
+        <span class="tag">DynamoDB</span>
+        <span class="tag tag-warm">Oracle DB</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <i class="ti ti-terminal" aria-hidden="true"></i>
+        <span>Dev & Scripting</span>
+      </div>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Bash</span>
+        <span class="tag">Linux</span>
+        <span class="tag">YAML</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Arduino</span>
+      </div>
+    </div>
+
+    <!-- Full width, centered -->
+    <div class="card centered">
+      <div class="card-top">
+        <i class="ti ti-chart-dots" aria-hidden="true"></i>
+        <span>Data Science & Analytics</span>
+      </div>
+      <div class="tags">
+        <span class="tag">Pandas</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">Seaborn</span>
+        <span class="tag">SQL</span>
+        <span class="tag">EDA</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag tag-warm">Deep Learning</span>
+        <span class="tag tag-warm">Regression</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+</body>
+</html>

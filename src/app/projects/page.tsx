@@ -2,6 +2,7 @@ import { getAllProjects } from "@/lib/projects";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata = {
@@ -65,11 +66,12 @@ export default function ProjectsPage() {
                   {/* Image */}
                   <div className="aspect-[16/10] overflow-hidden rounded-xl bg-surface-container-high relative mb-6">
                     {project.image ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                      <Image
+                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                         alt={project.title}
                         src={project.image}
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">

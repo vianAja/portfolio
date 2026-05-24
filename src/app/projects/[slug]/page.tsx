@@ -3,6 +3,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import MarkdownViewer from "@/components/MarkdownViewer";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -92,11 +93,12 @@ export default async function ProjectDetailPage({
           {/* Hero image */}
           {meta.image && (
             <div className="mt-16 relative aspect-[21/9] w-full rounded-xl overflow-hidden group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
+              <Image
+                className="object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
                 alt={meta.title}
                 src={meta.image}
+                fill
+                sizes="(min-width: 1280px) 1280px, 100vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-40" />
             </div>

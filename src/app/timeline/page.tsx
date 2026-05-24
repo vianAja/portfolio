@@ -4,6 +4,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { getAllTimelines } from "@/lib/timeline";
 import { getAllProjects } from "@/lib/projects";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "My Timeline | Kinetic Portfolio",
@@ -17,7 +18,7 @@ export default function TimelinePage() {
 
   return (
     <>
-      <NavBar active="Timeline" />
+      <NavBar active="Experience" />
 
       {/* Hero / Background Typography */}
       <header className="relative pt-32 pb-16 overflow-hidden">
@@ -84,11 +85,13 @@ export default function TimelinePage() {
                       </p>
 
                       {timeline.meta.image && (
-                        <div className="aspect-video rounded-lg overflow-hidden mb-4">
-                          <img 
+                        <div className="relative aspect-video rounded-lg overflow-hidden mb-4">
+                          <Image
                             alt={timeline.meta.title}
-                            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" 
+                            className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
                             src={timeline.meta.image}
+                            fill
+                            sizes="(min-width: 768px) 50vw, 100vw"
                           />
                         </div>
                       )}

@@ -26,7 +26,7 @@ outline:
   - "AWS Cloud Service: DynamoDB"
   - "AWS Cloud Service: CloudFormation (build bucket, EC2, DynamoDB, SNS, VPC, subnet, RTB)"
 certificateTitle: "LKS Cloud Computing Provincial 2024 - Participant Certificate"
-certificateImage: "/assets/sertif/lks-cloud-computing/Sertifikat Peserta LKS Cloud Computing Provinsi 2024.png"
+certificateImage: "/assets/sertif/lks-cloud-computing/Sertifikat Peserta LKS Cloud Computing Provinsi 2024.webp"
 certificateFile: "/assets/sertif/lks-cloud-computing/Sertifikat Peserta LKS Cloud Computing Provinsi 2024.pdf"
 ---
 Ranked 4th at the provincial-level LKS Cloud Computing competition in 2024 with a broad AWS service implementation challenge and architecture automation tasks.
