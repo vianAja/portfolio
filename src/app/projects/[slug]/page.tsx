@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import MarkdownViewer from "@/components/MarkdownViewer";
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -14,13 +15,30 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return {};
+
+  const image = project.meta.image || "/opengraph-image";
+
   return {
-    title: `${project.meta.title} | NAJWAN`,
+    title: `${project.meta.title} | Najwan Projects`,
     description: project.meta.description,
+    openGraph: {
+      title: `${project.meta.title} | Najwan Projects`,
+      description: project.meta.description,
+      url: `/projects/${slug}`,
+      siteName: "Najwan Portfolio",
+      images: [image],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.meta.title} | Najwan Projects`,
+      description: project.meta.description,
+      images: [image],
+    },
   };
 }
 

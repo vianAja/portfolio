@@ -9,7 +9,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full py-16 mt-20 bg-surface-container-low">
+    <footer id="contact" className="w-full py-16 mt-20 bg-surface-container-low">
       <div className="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-8">
         <div className="flex flex-col items-center md:items-start gap-2">
           <Link href="/" className="text-xl font-bold tracking-tight text-on-surface font-headline">

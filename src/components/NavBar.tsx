@@ -1,18 +1,83 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/projects", label: "Projects" },
   { href: "/blog", label: "Blog" },
   { href: "/timeline", label: "Experience" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function NavBar({ active }: { active?: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | undefined>(active);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection(active);
+      return;
+    }
+
+    const sectionToLabel: Record<string, string> = {
+      about: "Experience",
+      skills: "Experience",
+      projects: "Projects",
+      blog: "Blog",
+      contact: "Contact",
+    };
+
+    const sectionIds = Object.keys(sectionToLabel);
+    const sectionElements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    if (sectionElements.length === 0) {
+      return;
+    }
+
+    const updateActive = () => {
+      const visibleSections = sectionElements
+        .map((element) => {
+          const rect = element.getBoundingClientRect();
+          const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+          const ratio = Math.max(0, visibleHeight) / Math.max(rect.height, 1);
+          return { id: element.id, ratio };
+        })
+        .filter((item) => item.ratio >= 0.3)
+        .sort((a, b) => b.ratio - a.ratio);
+
+      const topMatch = visibleSections[0];
+      setActiveSection(topMatch ? sectionToLabel[topMatch.id] : undefined);
+    };
+
+    updateActive();
+
+    const observer = new IntersectionObserver(
+      () => {
+        updateActive();
+      },
+      {
+        threshold: [0.3, 0.4],
+        rootMargin: "-15% 0px -50% 0px",
+      },
+    );
+
+    sectionElements.forEach((element) => observer.observe(element));
+
+    window.addEventListener("scroll", updateActive, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", updateActive);
+    };
+  }, [active, pathname]);
+
+  const currentActive = pathname === "/" ? activeSection : active;
 
   return (
     <nav className="fixed top-0 w-full z-50 glass-surface border-b border-outline-variant/25">
@@ -38,7 +103,7 @@ export default function NavBar({ active }: { active?: string }) {
               key={label}
               href={href}
               className={`pb-1 transition-colors ${
-                active === label
+                currentActive === label
                   ? "text-primary border-b-2 border-primary"
                   : "text-on-surface/55 hover:text-primary"
               }`}
@@ -66,7 +131,7 @@ export default function NavBar({ active }: { active?: string }) {
                 href={href}
                 onClick={() => setIsMenuOpen(false)}
                 className={`font-headline tracking-tight uppercase text-xl ${
-                  active === label ? "text-primary" : "text-on-surface/70"
+                  currentActive === label ? "text-primary" : "text-on-surface/70"
                 }`}
               >
                 {label}

@@ -5,6 +5,7 @@ import BlogPostPager from "@/components/BlogPostPager";
 import { getBlogPostById, getAllBlogPosts } from "@/lib/blog";
 import { extractHeadings } from "@/lib/markdownHeadings";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -15,13 +16,39 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPostById(slug);
   if (!post) return {};
+
+  const plainContent = post.content
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, " ")
+    .replace(/\[(.*?)\]\([^)]+\)/g, "$1")
+    .replace(/[#>*_-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const excerpt = post.meta.excerpt?.trim() || plainContent.slice(0, 150);
+  const image = post.meta.image || "/opengraph-image";
+
   return {
     title: `${post.meta.title} | NAJWAN Blog`,
-    description: post.meta.excerpt,
+    description: excerpt,
+    openGraph: {
+      title: `${post.meta.title} | Najwan Blog`,
+      description: excerpt,
+      url: `/blog/${slug}`,
+      siteName: "Najwan Portfolio",
+      images: [image],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.meta.title} | Najwan Blog`,
+      description: excerpt,
+      images: [image],
+    },
   };
 }
 
