@@ -1,5 +1,5 @@
 ---
-title: "Jr Training Team"
+title: "Junior Training Team"
 company: "PT Boer Technology"
 date: "2025-10-01"
 displayDate: "Oct 2025 - Present"

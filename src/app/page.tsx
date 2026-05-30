@@ -108,8 +108,9 @@ export default function Home() {
       <main className="mx-auto max-w-7xl space-y-20 px-6 pb-20 pt-24 md:px-12 lg:px-20">
         <section id="home" className="relative flex items-center overflow-hidden pb-4 pt-2 md:min-h-[56vh]">
           <div className="relative z-10 grid w-full grid-cols-1 items-center gap-10 md:grid-cols-12">
-            <ScrollReveal className="relative flex justify-center md:col-span-4 md:justify-start">
-              <div className="relative h-72 w-72 overflow-hidden rounded-[1.75rem] border border-primary/15 bg-surface-container-high shadow-[0_28px_60px_rgba(26,28,28,0.12)] transition-all duration-500 will-change-transform hover:scale-[1.02] hover:border-primary/35 md:h-96 md:w-80">
+            <ScrollReveal className="relative isolate flex justify-center md:col-span-4 md:justify-start">
+              <div className="absolute inset-0 z-0 mx-auto h-72 w-72 rounded-[1.75rem] bg-[radial-gradient(circle_at_50%_30%,rgba(61,92,89,0.14),rgba(61,92,89,0.04)_42%,transparent_78%)] blur-3xl md:h-96 md:w-80" />
+              <div className="relative z-10 h-72 w-72 overflow-hidden rounded-[1.75rem] border border-primary/15 bg-surface-container-high shadow-[0_28px_60px_rgba(26,28,28,0.12)] transition-all duration-500 will-change-transform hover:scale-[1.02] hover:border-primary/35 md:h-96 md:w-80">
                 <Image
                   className="object-cover"
                   alt="Najwan Octavian portrait"
@@ -120,7 +121,6 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/14 via-transparent to-transparent" />
               </div>
-              <div className="absolute left-1/2 top-1/2 -z-10 h-[150%] w-[150%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/7 blur-[120px]" />
             </ScrollReveal>
 
             <ScrollReveal className="md:col-span-8">
@@ -172,7 +172,7 @@ export default function Home() {
                   <span className="block">Teaching what I learn.</span>
                 </h2>
                 <p className="max-w-xl font-body text-base leading-relaxed text-on-surface-variant md:text-lg">
-                  Cloud Infrastructure &amp; DevOps engineer yang percaya bahwa infrastruktur yang baik harus bisa dijelaskan dengan sederhana. Setelah aktif di kompetisi LKS, kini membantu tim teknis PT Boer Technology dalam delivery pelatihan cloud dan automation.
+                  Cloud Infrastructure &amp; DevOps Engineer who believes strong infrastructure should be easy to understand. After competing in LKS, I now support the technical team at PT Boer Technology in delivering cloud and automation training.
                 </p>
               </div>
 
@@ -204,7 +204,7 @@ export default function Home() {
                   Experience
                 </p>
                 <h2 className="font-headline text-2xl font-bold tracking-tight text-on-surface md:text-3xl">
-                  Professional arc from education to training delivery.
+                  Professional journey from education to training delivery.
                 </h2>
               </div>
 
@@ -348,13 +348,13 @@ export default function Home() {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl space-y-3">
               <p className="font-label text-[0.6875rem] uppercase tracking-[0.16em] text-primary">
-                Credentials
+                Certificate
               </p>
               <h2 className="font-headline text-3xl font-bold tracking-tight text-on-surface md:text-4xl">
-                Selected certificates and competition records.
+                Selected certificates and achievements.
               </h2>
               <p className="text-on-surface-variant">
-                Ringkasan sertifikat utama yang paling relevan untuk cloud, automation, Linux, dan security.
+                A focused summary of the most relevant credentials for cloud, automation, Linux, and security.
               </p>
             </div>
 
@@ -367,56 +367,47 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="space-y-4">
             {certificatePreview.map((certificate) => (
               <article
                 key={certificate.id}
-                className="group overflow-hidden rounded-[1.35rem] border border-outline-variant/25 bg-surface-container-lowest shadow-[0_18px_44px_rgba(26,28,28,0.05)] transition duration-300 hover:-translate-y-1 hover:border-primary/30"
+                className="flex flex-col gap-4 rounded-[1.35rem] border border-outline-variant/25 bg-surface-container-lowest p-5 shadow-[0_18px_44px_rgba(26,28,28,0.05)] transition duration-300 hover:border-primary/30 md:flex-row md:items-center md:justify-between"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-surface-container">
-                  <Image
-                    src={certificate.image}
-                    alt={certificate.title}
-                    fill
-                    sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/35 to-transparent" />
-                </div>
-                <div className="space-y-3 p-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="font-label text-[0.63rem] font-bold uppercase tracking-[0.18em] text-primary">
+                <div className="space-y-2">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="rounded-full bg-primary/8 px-2.5 py-1 text-[0.62rem] font-label uppercase tracking-[0.12em] text-primary">
                       {certificate.issuer}
                     </span>
-                    <span className="rounded-full bg-primary/8 px-2.5 py-1 text-[0.62rem] font-label uppercase tracking-[0.12em] text-primary">
+                    <span className="text-xs uppercase tracking-[0.12em] text-on-surface-variant">
                       {certificate.year}
                     </span>
                   </div>
                   <h3 className="font-headline text-lg font-bold leading-snug tracking-tight text-on-surface">
                     {certificate.title}
                   </h3>
-                  <div className="flex flex-wrap gap-2 pt-1">
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    href={certificate.pdfFile}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-2 text-[0.68rem] font-label font-semibold uppercase tracking-[0.12em] text-primary transition hover:bg-primary/16"
+                  >
+                    <span className="material-symbols-outlined text-sm">file_open</span>
+                    Open
+                  </a>
+                  {certificate.link ? (
                     <a
-                      href={certificate.pdfFile}
+                      href={certificate.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-2 text-[0.68rem] font-label font-semibold uppercase tracking-[0.12em] text-primary transition hover:bg-primary/16"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-outline-variant/35 px-3 py-2 text-[0.68rem] font-label font-semibold uppercase tracking-[0.12em] text-on-surface transition hover:border-primary/35 hover:text-primary"
                     >
-                      <span className="material-symbols-outlined text-sm">file_open</span>
-                      Open
+                      <span className="material-symbols-outlined text-sm">verified</span>
+                      Verify
                     </a>
-                    {certificate.link ? (
-                      <a
-                        href={certificate.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-full border border-outline-variant/35 px-3 py-2 text-[0.68rem] font-label font-semibold uppercase tracking-[0.12em] text-on-surface transition hover:border-primary/35 hover:text-primary"
-                      >
-                        <span className="material-symbols-outlined text-sm">verified</span>
-                        Verify
-                      </a>
-                    ) : null}
-                  </div>
+                  ) : null}
                 </div>
               </article>
             ))}

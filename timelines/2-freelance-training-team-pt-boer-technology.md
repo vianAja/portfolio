@@ -2,7 +2,7 @@
 title: "Freelance Training Team"
 company: "PT Boer Technology"
 date: "2025-05-01"
-displayDate: "Mei 2025 - Oct 2025"
+displayDate: "May 2025 - Oct 2025"
 icon: "groups"
 image: ""
 tags:
