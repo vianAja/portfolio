@@ -160,8 +160,7 @@ export default function Home() {
           </div>
         </section>
 
-        <ScrollReveal>
-          <section id="about" className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
+        <ScrollReveal as="section" id="about" className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
             <div className="space-y-6 md:col-span-5">
               <p className="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant">
                 About
@@ -181,18 +180,19 @@ export default function Home() {
                 <span>Available for new opportunities</span>
               </div>
 
-              <div className="grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
+              <div className="flex flex-wrap gap-3">
                 {socialLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
                     target={link.href.startsWith("http") ? "_blank" : undefined}
                     rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-outline-variant/32 bg-surface-container-lowest px-4 py-3 text-[0.72rem] font-label font-semibold uppercase tracking-[0.12em] text-on-surface transition hover:-translate-y-0.5 hover:border-primary/35 hover:bg-primary/6 hover:text-primary"
+                    className="group inline-flex h-11 w-11 items-center justify-center rounded-full border border-outline-variant/32 bg-surface-container-lowest text-on-surface transition duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:bg-primary/6 hover:text-primary hover:shadow-[0_10px_24px_rgba(61,92,89,0.14)]"
                     aria-label={link.label}
                   >
-                    <SocialIcon icon={link.icon} />
-                    <span>{link.label}</span>
+                    <span className="transition-transform duration-300 group-hover:scale-110">
+                      <SocialIcon icon={link.icon} />
+                    </span>
                   </a>
                 ))}
               </div>
@@ -241,21 +241,11 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div className="mt-8 pt-6">
-                  <Link
-                    href="/timeline"
-                    className="inline-flex items-center gap-2 rounded-full border border-outline-variant/35 bg-surface-container-low px-4 py-3 text-[0.72rem] font-label font-semibold uppercase tracking-[0.12em] text-on-surface transition hover:border-primary/35 hover:text-primary"
-                  >
-                    Explore full experience
-                    <span className="material-symbols-outlined text-base">arrow_forward</span>
-                  </Link>
-                </div>
               </div>
             </div>
-          </section>
         </ScrollReveal>
 
-        <section id="skills" className="space-y-6">
+        <ScrollReveal as="section" id="skills" className="space-y-6">
           <div className="space-y-2 text-center md:text-left">
             <p className="font-label text-[0.6875rem] uppercase tracking-[0.13em] text-primary/85">
               Technical Profile
@@ -306,7 +296,7 @@ export default function Home() {
                     <article
                       key={skill.category}
                       className={`bg-surface-container-lowest px-5 py-5 text-center transition hover:bg-surface-container-low md:text-left ${
-                        skill.centered ? "xl:col-span-3 xl:flex xl:flex-col xl:items-center" : ""
+                        skill.centered ? "xl:col-span-3 xl:mx-auto xl:flex xl:max-w-4xl xl:flex-col xl:items-center xl:text-center" : ""
                       }`}
                     >
                       <div className="mb-4 flex items-center justify-center gap-2 md:justify-start">
@@ -342,9 +332,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section id="certificates" className="space-y-10">
+        <ScrollReveal as="section" id="certificates" className="space-y-10">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl space-y-3">
               <p className="font-label text-[0.6875rem] uppercase tracking-[0.16em] text-primary">
@@ -360,10 +350,12 @@ export default function Home() {
 
             <Link
               href="/certificates"
-              className="inline-flex items-center gap-2 font-label text-sm uppercase tracking-[0.12em] text-primary"
+              className="group inline-flex items-center gap-2 font-label text-sm uppercase tracking-[0.12em] text-primary transition duration-300 hover:-translate-y-0.5 hover:text-primary-container"
             >
               View all certificates
-              <span className="material-symbols-outlined text-base">arrow_forward</span>
+              <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-x-1">
+                arrow_forward
+              </span>
             </Link>
           </div>
 
@@ -392,9 +384,11 @@ export default function Home() {
                     href={certificate.pdfFile}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-2 text-[0.68rem] font-label font-semibold uppercase tracking-[0.12em] text-primary transition hover:bg-primary/16"
-                  >
-                    <span className="material-symbols-outlined text-sm">file_open</span>
+                  className="group inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-2 text-[0.68rem] font-label font-semibold uppercase tracking-[0.12em] text-primary transition duration-300 hover:-translate-y-0.5 hover:bg-primary/16"
+                >
+                    <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-0.5">
+                      file_open
+                    </span>
                     Open
                   </a>
                   {certificate.link ? (
@@ -402,9 +396,11 @@ export default function Home() {
                       href={certificate.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full border border-outline-variant/35 px-3 py-2 text-[0.68rem] font-label font-semibold uppercase tracking-[0.12em] text-on-surface transition hover:border-primary/35 hover:text-primary"
+                      className="group inline-flex items-center gap-1.5 rounded-full border border-outline-variant/35 px-3 py-2 text-[0.68rem] font-label font-semibold uppercase tracking-[0.12em] text-on-surface transition duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:text-primary"
                     >
-                      <span className="material-symbols-outlined text-sm">verified</span>
+                      <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-0.5">
+                        verified
+                      </span>
                       Verify
                     </a>
                   ) : null}
@@ -412,9 +408,9 @@ export default function Home() {
               </article>
             ))}
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section id="projects" className="space-y-10">
+        <ScrollReveal as="section" id="projects" className="space-y-10">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl space-y-3">
               <h2 className="font-headline text-3xl font-bold tracking-tight text-on-surface md:text-4xl">
@@ -424,8 +420,14 @@ export default function Home() {
                 The two most recent projects based on the dates defined in each project detail.
               </p>
             </div>
-            <Link href="/projects" className="font-label text-sm uppercase tracking-[0.12em] text-primary">
+            <Link
+              href="/projects"
+              className="group inline-flex items-center gap-2 font-label text-sm uppercase tracking-[0.12em] text-primary transition duration-300 hover:-translate-y-0.5 hover:text-primary-container"
+            >
               View All Projects
+              <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-x-1">
+                arrow_forward
+              </span>
             </Link>
           </div>
 
@@ -453,14 +455,16 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                  <span className="material-symbols-outlined text-3xl text-primary/70">arrow_forward</span>
+                  <span className="material-symbols-outlined text-3xl text-primary/70 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary">
+                    arrow_forward
+                  </span>
                 </div>
               </Link>
             ))}
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section id="blog" className="space-y-10">
+        <ScrollReveal as="section" id="blog" className="space-y-10">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl space-y-3">
               <h2 className="font-headline text-3xl font-bold tracking-tight text-on-surface md:text-4xl">
@@ -470,8 +474,14 @@ export default function Home() {
                 Thoughts on architecture, cloud systems, and delivery process.
               </p>
             </div>
-            <Link href="/blog" className="font-label text-sm uppercase tracking-[0.12em] text-primary">
+            <Link
+              href="/blog"
+              className="group inline-flex items-center gap-2 font-label text-sm uppercase tracking-[0.12em] text-primary transition duration-300 hover:-translate-y-0.5 hover:text-primary-container"
+            >
               Explore Blogs
+              <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-x-1">
+                arrow_forward
+              </span>
             </Link>
           </div>
 
@@ -480,7 +490,7 @@ export default function Home() {
               <Link
                 key={post.id}
                 href={`/blog/${post.id}`}
-                className="group rounded-xl border border-outline-variant/25 bg-surface-container-lowest p-6 transition-colors hover:bg-surface-container-low"
+                className="group rounded-xl border border-outline-variant/25 bg-surface-container-lowest p-6 transition duration-300 hover:-translate-y-1 hover:bg-surface-container-low hover:shadow-[0_16px_30px_rgba(26,28,28,0.06)]"
               >
                 <time className="text-xs uppercase tracking-[0.12em] text-on-surface-variant">
                   {post.date}
@@ -492,7 +502,7 @@ export default function Home() {
               </Link>
             ))}
           </div>
-        </section>
+        </ScrollReveal>
       </main>
 
       <Footer />

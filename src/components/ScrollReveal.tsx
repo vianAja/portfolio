@@ -2,12 +2,20 @@
 
 import { useEffect, useRef } from "react";
 
-export default function ScrollReveal({ 
-  children, 
+type ScrollRevealProps = React.PropsWithChildren<
+  React.HTMLAttributes<HTMLElement> & {
+    as?: React.ElementType;
+  }
+>;
+
+export default function ScrollReveal({
+  children,
   className = "",
+  as,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  const ref = useRef<HTMLDivElement>(null);
+}: ScrollRevealProps) {
+  const ref = useRef<HTMLElement>(null);
+  const Component = as ?? "div";
 
   useEffect(() => {
     if (!ref.current) return;
@@ -48,8 +56,8 @@ export default function ScrollReveal({
   }, []);
 
   return (
-    <div ref={ref} className={className} {...props}>
+    <Component ref={ref as never} className={className} {...props}>
       {children}
-    </div>
+    </Component>
   );
 }

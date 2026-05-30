@@ -113,18 +113,21 @@ export default function ProjectsPage() {
                       <div className="flex items-center gap-4 mt-4">
                         <Link
                           href={`/projects/${project.slug}`}
-                          className="text-primary font-headline text-sm font-bold border-b-2 border-primary/20 hover:border-primary transition-all pb-0.5"
+                          className="group inline-flex items-center gap-2 text-primary font-headline text-sm font-bold transition duration-300 hover:-translate-y-0.5 hover:text-primary-container"
                         >
                           Read More
+                          <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-x-1">
+                            arrow_forward
+                          </span>
                         </Link>
                         {project.link && (
                           <a
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-outline hover:text-primary transition-colors flex items-center gap-1 text-sm"
+                            className="group flex items-center gap-1 text-outline transition duration-300 hover:-translate-y-0.5 hover:text-primary"
                           >
-                            <span className="material-symbols-outlined text-base">
+                            <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-x-1">
                               open_in_new
                             </span>
                             View Project
@@ -132,7 +135,7 @@ export default function ProjectsPage() {
                         )}
                       </div>
                     </div>
-                    <span className="material-symbols-outlined text-3xl text-outline group-hover:text-primary transition-colors mt-1">
+                    <span className="material-symbols-outlined text-3xl text-outline transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary mt-1">
                       north_east
                     </span>
                   </div>

@@ -56,7 +56,7 @@ export default async function BlogPage({
       <main className="pt-32 pb-24 px-6 md:px-12 max-w-6xl mx-auto">
         <header className="mb-14 text-left">
           <h1 className="font-headline text-5xl md:text-6xl font-extrabold tracking-tight text-on-surface mb-5 leading-tight">
-            Selected Essays
+            Selected Blogs
           </h1>
           <p className="font-body text-on-surface-variant text-lg md:text-xl max-w-2xl leading-relaxed">
             Thoughts, explorations, and architecture notes on engineering and cloud systems.
@@ -75,7 +75,7 @@ export default async function BlogPage({
                 type="text"
                 name="search"
                 defaultValue={search || ""}
-                placeholder="Search essays..."
+                placeholder="Search blogs..."
                 className="w-full bg-surface-container-low px-4 py-3 rounded-lg border border-outline-variant/30 focus:outline-none focus:border-primary text-on-surface"
               />
               <button
@@ -99,7 +99,7 @@ export default async function BlogPage({
 
         {paginatedPosts.length === 0 ? (
           <div className="text-center py-24 bg-surface-container-low rounded-xl">
-            <p className="text-on-surface-variant text-lg">No matching essays found.</p>
+            <p className="text-on-surface-variant text-lg">No matching blogs found.</p>
           </div>
         ) : (
           <div className="space-y-6">
@@ -137,11 +137,13 @@ export default async function BlogPage({
                   </div>
 
                   <Link
-                    className="inline-flex items-center gap-2 text-primary font-label text-sm font-semibold tracking-wide uppercase hover:text-primary-container transition-colors"
+                    className="group inline-flex items-center gap-2 text-primary font-label text-sm font-semibold tracking-wide uppercase transition duration-300 hover:-translate-y-0.5 hover:text-primary-container"
                     href={`/blog/${post.id}`}
                   >
-                    Read Essay
-                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                    Read Blog
+                    <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">
+                      arrow_forward
+                    </span>
                   </Link>
                 </div>
 

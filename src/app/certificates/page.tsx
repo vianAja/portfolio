@@ -116,9 +116,11 @@ export default function CertificatesPage() {
                       href={certificate.pdfFile}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-2 text-[0.68rem] font-label font-semibold uppercase tracking-[0.12em] text-primary transition hover:bg-primary/16"
+                      className="group inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-2 text-[0.68rem] font-label font-semibold uppercase tracking-[0.12em] text-primary transition duration-300 hover:-translate-y-0.5 hover:bg-primary/16"
                     >
-                      <span className="material-symbols-outlined text-sm">file_open</span>
+                      <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-0.5">
+                        file_open
+                      </span>
                       Open
                     </a>
 
@@ -127,9 +129,11 @@ export default function CertificatesPage() {
                         href={certificate.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-full border border-outline-variant/35 px-3 py-2 text-[0.68rem] font-label font-semibold uppercase tracking-[0.12em] text-on-surface transition hover:border-primary/35 hover:text-primary"
+                        className="group inline-flex items-center gap-1.5 rounded-full border border-outline-variant/35 px-3 py-2 text-[0.68rem] font-label font-semibold uppercase tracking-[0.12em] text-on-surface transition duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:text-primary"
                       >
-                        <span className="material-symbols-outlined text-sm">verified</span>
+                        <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-0.5">
+                          verified
+                        </span>
                         Verify
                       </a>
                     ) : (

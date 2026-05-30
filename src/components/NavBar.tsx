@@ -24,11 +24,7 @@ export default function NavBar({ active }: { active?: string }) {
     }
 
     const sectionToLabel: Record<string, string> = {
-      about: "Experience",
-      skills: "Experience",
       projects: "Projects",
-      blog: "Blog",
-      certificates: "Certificates",
       contact: "Contact",
     };
 
