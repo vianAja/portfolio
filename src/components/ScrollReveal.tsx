@@ -14,7 +14,7 @@ export default function ScrollReveal({
   as,
   ...props
 }: ScrollRevealProps) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLElement | null>(null);
   const Component = as ?? "div";
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function ScrollReveal({
   }, []);
 
   return (
-    <Component ref={ref as never} className={className} {...props}>
+    <Component ref={ref} className={className} {...props}>
       {children}
     </Component>
   );

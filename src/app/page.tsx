@@ -11,7 +11,7 @@ import Link from "next/link";
 function SocialIcon({ icon }: { icon: "github" | "email" | "whatsapp" | "linkedin" }) {
   if (icon === "github") {
     return (
-      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
         <path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.46c.53.1.72-.23.72-.51v-2c-2.94.64-3.56-1.25-3.56-1.25-.48-1.21-1.17-1.54-1.17-1.54-.95-.65.07-.64.07-.64 1.06.07 1.61 1.08 1.61 1.08.93 1.6 2.45 1.14 3.04.87.1-.67.37-1.14.67-1.41-2.35-.27-4.82-1.18-4.82-5.24 0-1.16.41-2.12 1.08-2.87-.11-.27-.47-1.37.1-2.85 0 0 .89-.29 2.91 1.1a10.1 10.1 0 0 1 5.3 0c2.02-1.39 2.91-1.1 2.91-1.1.57 1.48.21 2.58.1 2.85.67.75 1.08 1.71 1.08 2.87 0 4.07-2.48 4.97-4.85 5.23.38.33.72.99.72 2v2.97c0 .28.19.61.73.51A10.5 10.5 0 0 0 12 1.5Z" />
       </svg>
     );
@@ -19,17 +19,17 @@ function SocialIcon({ icon }: { icon: "github" | "email" | "whatsapp" | "linkedi
 
   if (icon === "linkedin") {
     return (
-      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
         <path d="M4.98 3.5A1.49 1.49 0 1 1 3.5 5 1.49 1.49 0 0 1 4.98 3.5ZM3.75 8.25h2.46V20.5H3.75Zm4.63 0h2.36v1.67h.03c.33-.62 1.14-1.28 2.34-1.28 2.5 0 2.96 1.64 2.96 3.78v8.08h-2.46v-7.16c0-1.71-.03-3.91-2.38-3.91-2.39 0-2.76 1.87-2.76 3.79v7.28H8.38Z" />
       </svg>
     );
   }
 
   if (icon === "email") {
-    return <span className="material-symbols-outlined text-[1.05rem]">mail</span>;
+    return <span className="material-symbols-outlined text-[1.2rem]">mail</span>;
   }
 
-  return <span className="material-symbols-outlined text-[1.05rem]">chat</span>;
+  return <span className="material-symbols-outlined text-[1.2rem]">chat</span>;
 }
 
 export default function Home() {
@@ -175,7 +175,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/10 px-3.5 py-2 text-sm font-medium text-green-700 dark:border-green-400/20 dark:bg-green-400/10 dark:text-green-300">
+              <div className="inline-flex items-center gap-2 rounded-full border border-green-700/20 bg-green-700/10 px-3.5 py-2 text-sm font-medium text-green-900 dark:border-green-400/20 dark:bg-green-400/10 dark:text-green-300">
                 <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
                 <span>Available for new opportunities</span>
               </div>
@@ -296,7 +296,7 @@ export default function Home() {
                     <article
                       key={skill.category}
                       className={`bg-surface-container-lowest px-5 py-5 text-center transition hover:bg-surface-container-low md:text-left ${
-                        skill.centered ? "xl:col-span-3 xl:mx-auto xl:flex xl:max-w-4xl xl:flex-col xl:items-center xl:text-center" : ""
+                        skill.centered ? "xl:col-span-3 xl:flex xl:flex-col xl:items-center xl:text-center" : ""
                       }`}
                     >
                       <div className="mb-4 flex items-center justify-center gap-2 md:justify-start">

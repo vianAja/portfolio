@@ -10,7 +10,6 @@ const navLinks = [
   { href: "/blog", label: "Blog" },
   { href: "/timeline", label: "Experience" },
   { href: "/certificates", label: "Certificates" },
-  { href: "/#contact", label: "Contact" },
 ];
 
 export default function NavBar({ active }: { active?: string }) {
