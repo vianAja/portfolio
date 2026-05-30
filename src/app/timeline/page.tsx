@@ -28,7 +28,8 @@ export default function TimelinePage() {
           </h1>
         </ScrollReveal>
         <ScrollReveal className="relative z-10 max-w-7xl mx-auto px-8 text-center">
-          <span className="inline-block font-label text-[0.6875rem] uppercase tracking-[0.2em] text-primary mb-4">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-4 py-2 font-label text-[0.6875rem] uppercase tracking-[0.2em] text-primary">
+            <span className="h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_0_6px_rgba(61,92,89,0.12)]" />
             Professional Arc
           </span>
           <h2 className="text-5xl md:text-7xl font-headline font-bold tracking-tight mb-6">
@@ -55,6 +56,7 @@ export default function TimelinePage() {
                 key={timeline.meta.id}
                 className={`relative mb-16 md:flex ${isRight ? "justify-end" : "justify-start"} w-full group`}
               >
+                <span className="absolute left-1/2 top-7 z-20 hidden h-4 w-4 -translate-x-1/2 rounded-full border border-primary/35 bg-primary shadow-[0_0_0_7px_rgba(61,92,89,0.12)] md:block" />
                 <div className={`md:w-1/2 ${isRight ? "pl-0 md:pl-10 relative" : "pr-0 md:pr-10 relative text-right"}`}>
                   
                   {/* Mobile Date */}

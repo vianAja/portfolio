@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/projects", label: "Projects" },
   { href: "/blog", label: "Blog" },
   { href: "/timeline", label: "Experience" },
+  { href: "/certificates", label: "Certificates" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -19,7 +20,6 @@ export default function NavBar({ active }: { active?: string }) {
 
   useEffect(() => {
     if (pathname !== "/") {
-      setActiveSection(active);
       return;
     }
 
@@ -28,6 +28,7 @@ export default function NavBar({ active }: { active?: string }) {
       skills: "Experience",
       projects: "Projects",
       blog: "Blog",
+      certificates: "Certificates",
       contact: "Contact",
     };
 
