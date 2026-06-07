@@ -14,8 +14,8 @@ const navLinks = [
 
 const homeLinks = [
   { href: "https://portfolio-najwan.pages.dev/", label: "Simple" },
-  { href: "https://home.najwan.my.id/", label: "Dark-themes" },
-  { href: "https://najwan.my.id/", label: "Minimalist" },
+  { href: "https://home.najwan.my.id/", label: "Dark theme" },
+  { href: "https://local.najwan.my.id", label: "Simple v2" },
 ];
 
 export default function NavBar({ active }: { active?: string }) {
@@ -100,17 +100,17 @@ export default function NavBar({ active }: { active?: string }) {
         </Link>
 
         <div className="hidden md:flex items-center gap-7 font-headline tracking-tight text-sm uppercase font-semibold">
-          <div className="group relative">
+          <div className="group relative -my-4 py-4">
             <span className="inline-flex cursor-default items-center gap-2 pb-1 text-on-surface/55 transition-colors group-hover:text-primary">
               Home
               <span className="material-symbols-outlined text-lg">expand_more</span>
             </span>
-            <div className="pointer-events-none invisible absolute right-0 top-full mt-3 min-w-52 translate-y-2 rounded-2xl border border-outline-variant/25 bg-surface-container-lowest/95 p-2 opacity-0 shadow-[0_18px_44px_rgba(26,28,28,0.12)] backdrop-blur-xl transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+            <div className="pointer-events-none invisible absolute left-1/2 top-full z-50 flex min-w-max -translate-x-1/2 translate-y-1 rounded-2xl border border-outline-variant/25 bg-surface-container-lowest/95 p-2 opacity-0 shadow-[0_18px_44px_rgba(26,28,28,0.12)] backdrop-blur-xl transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
               {homeLinks.map(({ href, label }) => (
                 <Link
                   key={label}
                   href={href}
-                  className="block rounded-xl px-4 py-3 font-headline text-sm uppercase tracking-tight text-on-surface/70 transition-colors hover:bg-primary/8 hover:text-primary"
+                  className="block whitespace-nowrap rounded-xl px-4 py-3 font-headline text-sm uppercase tracking-tight text-on-surface/70 transition-colors hover:bg-primary/8 hover:text-primary"
                 >
                   {label}
                 </Link>
