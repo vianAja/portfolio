@@ -1,4 +1,5 @@
-import { mkdir, rm, copyFile, cp, writeFile } from "node:fs/promises";
+import { mkdir, rm, copyFile, cp, writeFile, access } from "node:fs/promises";
+import { constants as fsConstants } from "node:fs";
 
 const outputRoot = ".vercel/output";
 const staticRoot = `${outputRoot}/static`;
@@ -7,7 +8,12 @@ await rm(outputRoot, { recursive: true, force: true });
 await mkdir(staticRoot, { recursive: true });
 
 await copyFile("index.html", `${staticRoot}/index.html`);
-await copyFile("code.html", `${staticRoot}/code.html`);
+try {
+  await access("code.html", fsConstants.F_OK);
+  await copyFile("code.html", `${staticRoot}/code.html`);
+} catch {
+  // Optional helper page; safe to omit if it is absent in the deployed source snapshot.
+}
 await cp("public", `${staticRoot}/public`, { recursive: true });
 
 await writeFile(
