@@ -13,8 +13,8 @@ const navLinks = [
 
 const homeLinks = [
   { href: "https://portfolio-najwan.pages.dev/", label: "Simple" },
-  { href: "https://home.najwan.my.id/", label: "Dark-themes" },
   { href: "https://najwan.my.id/", label: "Minimalist" },
+  { href: "https://local.najwan.my.id", label: "Simple v2" },
 ];
 
 export default function NavBar({ active }: { active?: string }) {
@@ -32,17 +32,17 @@ export default function NavBar({ active }: { active?: string }) {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          <div className="relative group">
+          <div className="relative -my-4 py-4 group">
             <span className="inline-flex cursor-default items-center gap-2 font-headline tracking-tighter uppercase text-sm text-gray-400 transition-colors group-hover:text-white">
               Home
               <span className="material-symbols-outlined text-lg">expand_more</span>
             </span>
-            <div className="pointer-events-none invisible absolute right-0 top-full mt-3 min-w-52 translate-y-2 rounded-2xl border border-white/10 bg-[#121416]/95 p-2 opacity-0 shadow-[0_18px_44px_rgba(0,0,0,0.32)] backdrop-blur-xl transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+            <div className="pointer-events-none invisible absolute left-1/2 top-full z-50 flex min-w-max -translate-x-1/2 translate-y-1 rounded-2xl border border-white/10 bg-[#121416]/95 p-2 opacity-0 shadow-[0_18px_44px_rgba(0,0,0,0.32)] backdrop-blur-xl transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
               {homeLinks.map(({ href, label }) => (
                 <Link
                   key={label}
                   href={href}
-                  className="block rounded-xl px-4 py-3 font-headline text-sm uppercase tracking-tighter text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
+                  className="block whitespace-nowrap rounded-xl px-4 py-3 font-headline text-sm uppercase tracking-tighter text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
                 >
                   {label}
                 </Link>
