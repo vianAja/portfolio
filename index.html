@@ -27,10 +27,10 @@
       --secondary: #2c2c2c;
       --secondary-soft: #e8d8df;
       --background: #f3f4f4;
-      --surface: #fcfcfc;
-      --surface-low: #f0edef;
-      --surface-mid: #e7e3e6;
-      --surface-high: #ddd6db;
+      --surface: #f9f1f4;
+      --surface-low: #f2e5eb;
+      --surface-mid: #e6d2dc;
+      --surface-high: #d8bccb;
       --on-surface: #2c2c2c;
       --muted: #665761;
       --outline: #d3cad0;
@@ -58,7 +58,10 @@
 
     body {
       margin: 0;
-      background: var(--background);
+      background:
+        radial-gradient(circle at top left, rgba(var(--primary-rgb), 0.11), transparent 28%),
+        radial-gradient(circle at top right, rgba(var(--primary-container-rgb), 0.09), transparent 24%),
+        linear-gradient(180deg, #f8f1f4 0%, var(--background) 26%, #ece6ea 100%);
       color: var(--on-surface);
       font-family: var(--body);
       line-height: 1.6;
@@ -130,7 +133,7 @@
       left: 0;
       width: 100%;
       border-bottom: 1px solid rgba(var(--primary-rgb), 0.14);
-      background: color-mix(in srgb, var(--surface) 80%, transparent);
+      background: color-mix(in srgb, #f8edf2 88%, transparent);
       -webkit-backdrop-filter: blur(20px);
       backdrop-filter: blur(20px);
     }
@@ -280,7 +283,7 @@
       width: min(18rem, calc(100vw - 2rem));
       border: 1px solid rgba(var(--primary-rgb), 0.18);
       border-radius: var(--radius-lg);
-      background: var(--surface);
+      background: color-mix(in srgb, var(--surface) 94%, white);
       box-shadow: var(--shadow-soft);
       padding: 1rem;
     }
@@ -385,7 +388,7 @@
       overflow: hidden;
       border: 1px solid rgba(var(--primary-rgb), 0.18);
       border-radius: var(--radius-xl);
-      background: var(--surface-high);
+      background: linear-gradient(180deg, var(--surface-high), var(--surface));
       box-shadow: var(--shadow-strong);
       transition: transform 400ms ease, border-color 400ms ease;
     }
@@ -619,7 +622,7 @@
     .project-card,
     .blog-card {
       border: 1px solid rgba(var(--primary-rgb), 0.12);
-      background: var(--surface);
+      background: color-mix(in srgb, var(--surface) 90%, white);
       box-shadow: var(--shadow-soft);
     }
 
@@ -735,7 +738,7 @@
       min-height: 8.8rem;
       border: 1px solid rgba(var(--primary-rgb), 0.15);
       border-radius: var(--radius-md);
-      background: var(--surface);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 94%, white), var(--surface-low));
       padding: 1rem;
       box-shadow: 0 8px 24px rgba(26, 28, 28, 0.04);
       transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
@@ -788,7 +791,7 @@
       overflow: hidden;
       border: 1px solid rgba(var(--primary-rgb), 0.16);
       border-radius: var(--radius-lg);
-      background: rgba(var(--primary-rgb), 0.08);
+      background: linear-gradient(180deg, rgba(var(--primary-rgb), 0.13), rgba(var(--primary-container-rgb), 0.08));
       box-shadow: 0 8px 24px rgba(26, 28, 28, 0.04);
     }
 
@@ -961,7 +964,7 @@
 
     .project-card:hover {
       transform: translateY(-2px);
-      background: rgba(var(--primary-rgb), 0.08);
+      background: color-mix(in srgb, var(--surface-low) 88%, rgba(var(--primary-rgb), 0.14));
     }
 
     .project-card img {
@@ -997,7 +1000,7 @@
 
     .blog-card:hover {
       transform: translateY(-4px);
-      background: var(--surface-low);
+      background: color-mix(in srgb, var(--surface-low) 85%, rgba(var(--primary-container-rgb), 0.1));
       box-shadow: 0 16px 30px rgba(26, 28, 28, 0.06);
     }
 
@@ -1021,7 +1024,7 @@
 
     .table-shell caption {
       padding: 1rem 1.25rem;
-      background: var(--surface-low);
+      background: linear-gradient(90deg, rgba(var(--primary-rgb), 0.12), rgba(var(--primary-container-rgb), 0.08));
       color: var(--primary);
       font-size: 0.75rem;
       font-weight: 800;
@@ -1051,7 +1054,7 @@
 
     .footer {
       margin-top: 5rem;
-      background: var(--surface-low);
+      background: linear-gradient(180deg, #ece2e8 0%, #e1d1db 100%);
       padding: 4rem 0;
     }
 
